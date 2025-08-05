@@ -26,15 +26,17 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo and title */}
           <div className="flex items-center gap-4">
-            <img 
-              src={borovoCoatOfArms} 
-              alt="Герб на Борово" 
-              className="w-16 h-16 object-contain"
-            />
-            <div>
-              <h1 className="text-2xl font-bold text-primary">ОБЩИНА</h1>
-              <h1 className="text-2xl font-bold text-primary">БОРОВО</h1>
-            </div>
+            <a href="/" className="flex items-center gap-4">
+              <img 
+                src={borovoCoatOfArms} 
+                alt="Герб на Борово" 
+                className="w-16 h-16 object-contain"
+              />
+              <div>
+                <h1 className="text-2xl font-bold text-primary">ОБЩИНА</h1>
+                <h1 className="text-2xl font-bold text-primary">БОРОВО</h1>
+              </div>
+            </a>
           </div>
 
           {/* Contact info and search */}
@@ -73,20 +75,20 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             <div className="flex">
-              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none">
-                ЗА ОБЩИНАТА
+              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
+                <a href="/about">ЗА ОБЩИНАТА</a>
               </Button>
-              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none">
-                АДМИНИСТРАЦИЯ
+              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
+                <a href="/administration">АДМИНИСТРАЦИЯ</a>
               </Button>
-              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none">
-                ДЕЙНОСТИ И УСЛУГИ
+              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
+                <a href="/services">ДЕЙНОСТИ И УСЛУГИ</a>
               </Button>
-              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none">
-                АКТУАЛНО
+              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
+                <a href="/news">АКТУАЛНО</a>
               </Button>
-              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none">
-                ОБЩИНСКИ СЪВЕТ
+              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
+                <a href="/council">ОБЩИНСКИ СЪВЕТ</a>
               </Button>
             </div>
           </div>
