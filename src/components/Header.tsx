@@ -2,6 +2,7 @@ import { Search, Phone, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import borovoCoatOfArms from "@/assets/borovo-coat-of-arms.png";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from "@/components/ui/navigation-menu";
 
 const Header = () => {
   return (
@@ -81,12 +82,103 @@ const Header = () => {
               <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
                 <a href="/administration">АДМИНИСТРАЦИЯ</a>
               </Button>
-              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
-                <a href="/services">ДЕЙНОСТИ И УСЛУГИ</a>
-              </Button>
-              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
-                <a href="/news">АКТУАЛНО</a>
-              </Button>
+
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none">
+                      ДЕЙНОСТИ И УСЛУГИ
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2">
+                        <li>
+                          <NavigationMenuLink asChild>
+                            <a href="/services" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
+                              <div className="font-semibold">Всички услуги</div>
+                              <p className="text-sm text-muted-foreground">Преглед на всички услуги</p>
+                            </a>
+                          </NavigationMenuLink>
+                        </li>
+                        <li>
+                          <NavigationMenuLink asChild>
+                            <a href="/services/documents" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
+                              <div className="font-semibold">Документи и формуляри</div>
+                              <p className="text-sm text-muted-foreground">Образци и заявления</p>
+                            </a>
+                          </NavigationMenuLink>
+                        </li>
+                        <li>
+                          <NavigationMenuLink asChild>
+                            <a href="/services/local-taxes" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
+                              <div className="font-semibold">Местни данъци и такси</div>
+                              <p className="text-sm text-muted-foreground">Информация и плащания</p>
+                            </a>
+                          </NavigationMenuLink>
+                        </li>
+                        <li>
+                          <NavigationMenuLink asChild>
+                            <a href="/services/technical" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
+                              <div className="font-semibold">Технически услуги</div>
+                              <p className="text-sm text-muted-foreground">Инфраструктура и строителство</p>
+                            </a>
+                          </NavigationMenuLink>
+                        </li>
+                        <li>
+                          <NavigationMenuLink asChild>
+                            <a href="/services/social" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
+                              <div className="font-semibold">Социални услуги</div>
+                              <p className="text-sm text-muted-foreground">Подкрепа и грижа</p>
+                            </a>
+                          </NavigationMenuLink>
+                        </li>
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none">
+                      АКТУАЛНО
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2">
+                        <li>
+                          <NavigationMenuLink asChild>
+                            <a href="/news" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
+                              <div className="font-semibold">Всички новини</div>
+                              <p className="text-sm text-muted-foreground">Последни публикации</p>
+                            </a>
+                          </NavigationMenuLink>
+                        </li>
+                        <li>
+                          <NavigationMenuLink asChild>
+                            <a href="/news/events" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
+                              <div className="font-semibold">Събития</div>
+                              <p className="text-sm text-muted-foreground">Календар и покани</p>
+                            </a>
+                          </NavigationMenuLink>
+                        </li>
+                        <li>
+                          <NavigationMenuLink asChild>
+                            <a href="/news/announcements" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
+                              <div className="font-semibold">Обяви и съобщения</div>
+                              <p className="text-sm text-muted-foreground">Официални съобщения</p>
+                            </a>
+                          </NavigationMenuLink>
+                        </li>
+                        <li>
+                          <NavigationMenuLink asChild>
+                            <a href="/news/tenders" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
+                              <div className="font-semibold">Търгове и конкурси</div>
+                              <p className="text-sm text-muted-foreground">Документи и условия</p>
+                            </a>
+                          </NavigationMenuLink>
+                        </li>
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+
               <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
                 <a href="/council">ОБЩИНСКИ СЪВЕТ</a>
               </Button>

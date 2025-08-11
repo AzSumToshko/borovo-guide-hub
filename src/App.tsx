@@ -10,6 +10,13 @@ import ServicesPage from "./pages/ServicesPage";
 import NewsPage from "./pages/NewsPage";
 import CouncilPage from "./pages/CouncilPage";
 import NotFound from "./pages/NotFound";
+import DocumentsPage from "./pages/DocumentsPage";
+import LocalTaxesPage from "./pages/LocalTaxesPage";
+import TechnicalServicesPage from "./pages/TechnicalServicesPage";
+import SocialServicesPage from "./pages/SocialServicesPage";
+import EventsPage from "./pages/EventsPage";
+import AnnouncementsPage from "./pages/AnnouncementsPage";
+import TendersPage from "./pages/TendersPage";
 
 const queryClient = new QueryClient();
 
@@ -24,7 +31,14 @@ const App = () => (
           <Route path="/about" element={<AboutPage />} />
           <Route path="/administration" element={<AdministrationPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/documents" element={<DocumentsPage />} />
+          <Route path="/services/local-taxes" element={<LocalTaxesPage />} />
+          <Route path="/services/technical" element={<TechnicalServicesPage />} />
+          <Route path="/services/social" element={<SocialServicesPage />} />
           <Route path="/news" element={<NewsPage />} />
+          <Route path="/news/events" element={<EventsPage />} />
+          <Route path="/news/announcements" element={<AnnouncementsPage />} />
+          <Route path="/news/tenders" element={<TendersPage />} />
           <Route path="/council" element={<CouncilPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
