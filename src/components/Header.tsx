@@ -3,12 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import borovoCoatOfArms from "@/assets/borovo-coat-of-arms.png";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from "@/components/ui/navigation-menu";
-
+import { useI18n } from "@/i18n";
+import Breadcrumbs from "@/components/Breadcrumbs";
 const Header = () => {
+  const { locale, setLocale, t } = useI18n();
   return (
     <header className="bg-background shadow-[var(--shadow-header)]">
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-primary text-primary-foreground px-3 py-1 rounded">Прескочи към съдържанието</a>
       {/* Top utility bar */}
-      <div className="bg-muted py-2">
+      <div className="bg-muted py-2" role="region" aria-label="Помощна лента">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-4">
             <span className="text-muted-foreground">А</span>
@@ -16,8 +19,11 @@ const Header = () => {
             <span className="font-bold">А</span>
           </div>
           <div className="flex items-center gap-6">
-            <span className="text-muted-foreground">Обратна връзка</span>
-            <span className="text-muted-foreground">Контакти</span>
+            <button aria-label="Смяна на език" className="text-sm underline underline-offset-4" onClick={() => setLocale(locale === "bg" ? "en" : "bg")}>
+              {locale === "bg" ? "EN" : "BG"}
+            </button>
+            <a href="/accessibility" className="text-muted-foreground hover:underline">{t("footer.accessibility")}</a>
+            <a href="/sitemap" className="text-muted-foreground hover:underline">{t("footer.sitemap")}</a>
           </div>
         </div>
       </div>
@@ -30,12 +36,13 @@ const Header = () => {
             <a href="/" className="flex items-center gap-4">
               <img 
                 src={borovoCoatOfArms} 
-                alt="Герб на Борово" 
+                alt="Герб на Община Борово" 
                 className="w-16 h-16 object-contain"
+                loading="eager"
               />
               <div>
-                <h1 className="text-2xl font-bold text-primary">ОБЩИНА</h1>
-                <h1 className="text-2xl font-bold text-primary">БОРОВО</h1>
+                <h1 className="text-2xl font-bold text-primary">Община</h1>
+                <h2 className="text-2xl font-bold text-primary">БОРОВО</h2>
               </div>
             </a>
           </div>
@@ -58,12 +65,13 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2" role="search">
               <Input 
-                placeholder="Търсене в сайта..." 
+                placeholder={t("search.placeholder")}
                 className="w-64"
+                aria-label={t("search.placeholder")}
               />
-              <Button size="icon" variant="outline">
+              <Button size="icon" variant="outline" aria-label="Търсене">
                 <Search className="w-4 h-4" />
               </Button>
             </div>
@@ -72,30 +80,26 @@ const Header = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-primary text-primary-foreground">
+      <nav className="bg-primary text-primary-foreground" role="navigation" aria-label="Главна навигация">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            <div className="flex">
+            <div className="flex flex-wrap">
               <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
-                <a href="/about">ЗА ОБЩИНАТА</a>
+                <a href="/about">{t("nav.about")}</a>
               </Button>
-              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
-                <a href="/administration">АДМИНИСТРАЦИЯ</a>
-              </Button>
-
               <NavigationMenu>
                 <NavigationMenuList>
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none">
-                      ДЕЙНОСТИ И УСЛУГИ
+                      {t("nav.admin")}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2">
                         <li>
                           <NavigationMenuLink asChild>
                             <a href="/services" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                              <div className="font-semibold">Всички услуги</div>
-                              <p className="text-sm text-muted-foreground">Преглед на всички услуги</p>
+                              <div className="font-semibold">{t("nav.services")}</div>
+                              <p className="text-sm text-muted-foreground">Онлайн услуги и описания</p>
                             </a>
                           </NavigationMenuLink>
                         </li>
@@ -137,7 +141,7 @@ const Header = () => {
 
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none">
-                      АКТУАЛНО
+                      {t("nav.news")}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2">
@@ -180,12 +184,31 @@ const Header = () => {
               </NavigationMenu>
 
               <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
-                <a href="/council">ОБЩИНСКИ СЪВЕТ</a>
+                <a href="/registers">{t("nav.registers")}</a>
+              </Button>
+              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
+                <a href="/buyer-profile">{t("nav.buyer")}</a>
+              </Button>
+              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
+                <a href="/declarations">{t("nav.declarations")}</a>
+              </Button>
+              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
+                <a href="/access-to-information">{t("nav.access")}</a>
+              </Button>
+              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
+                <a href="/contacts">{t("nav.contacts")}</a>
+              </Button>
+              <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-6 rounded-none" asChild>
+                <a href="/council">{t("nav.council")}</a>
               </Button>
             </div>
           </div>
         </div>
       </nav>
+      {/* Breadcrumbs */}
+      <div className="bg-muted/60" role="region" aria-label="Иерархична навигация">
+        <Breadcrumbs />
+      </div>
     </header>
   );
 };
