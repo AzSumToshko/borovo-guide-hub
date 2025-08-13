@@ -37,6 +37,11 @@ const Breadcrumbs = () => {
     return acc;
   }, [segments, t]);
 
+  // Don't show breadcrumbs on homepage
+  if (location.pathname === "/") {
+    return null;
+  }
+
   return (
     <nav aria-label="Breadcrumb" className="container mx-auto px-4 py-2">
       <Breadcrumb>
