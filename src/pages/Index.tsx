@@ -5,6 +5,7 @@ import NewsEventsSection from "@/components/NewsEventsSection";
 import StatsSection from "@/components/StatsSection";
 import EventsCalendarSection from "@/components/EventsCalendarSection";
 import NewsletterSection from "@/components/NewsletterSection";
+import MunicipalActivitiesSection from "@/components/MunicipalActivitiesSection";
 import AnnouncementsGrid from "@/components/AnnouncementsGrid";
 import QuickLinksSection from "@/components/QuickLinksSection";
 import Footer from "@/components/Footer";
@@ -19,6 +20,7 @@ const Index = () => {
       <StatsSection />
       <EventsCalendarSection />
       <NewsletterSection />
+      <MunicipalActivitiesSection />
       {/* <AnnouncementsGrid />
       <QuickLinksSection /> */}
       <Footer />
