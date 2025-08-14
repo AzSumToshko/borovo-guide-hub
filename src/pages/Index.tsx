@@ -4,6 +4,7 @@ import ProjectsBanner from "@/components/ProjectsBanner";
 import NewsEventsSection from "@/components/NewsEventsSection";
 import StatsSection from "@/components/StatsSection";
 import EventsCalendarSection from "@/components/EventsCalendarSection";
+import NewsletterSection from "@/components/NewsletterSection";
 import AnnouncementsGrid from "@/components/AnnouncementsGrid";
 import QuickLinksSection from "@/components/QuickLinksSection";
 import Footer from "@/components/Footer";
@@ -17,6 +18,7 @@ const Index = () => {
       <NewsEventsSection />
       <StatsSection />
       <EventsCalendarSection />
+      <NewsletterSection />
       {/* <AnnouncementsGrid />
       <QuickLinksSection /> */}
       <Footer />
