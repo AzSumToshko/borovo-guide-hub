@@ -63,8 +63,15 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-light mt-8 pt-6 text-center text-sm opacity-80">
-          <p>&copy; 2025 Община Борово. Всички права запазени.</p>
+        <div className="border-t border-primary-light mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-sm opacity-80">
+          <div className="flex flex-wrap justify-center md:justify-start gap-6 mb-4 md:mb-0">
+            <span>ОБЩИНА БОРОВО © 2025 Всички права запазени.</span>
+            <a href="/information-protection" className="hover:text-primary-light transition-colors">Защита на личните данни</a>
+            <a href="/accessibility" className="hover:text-primary-light transition-colors">Достъпност на съдържанието</a>
+          </div>
+          <div>
+            <span>Уеб сайт и поддръжка: Antama ЕООД</span>
+          </div>
         </div>
       </div>
     </footer>
