@@ -1,9 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, FileText, Users, MapPin } from "lucide-react";
-import { useI18n } from "@/i18n";
 
 const AnnouncementsGrid = () => {
-  const { t } = useI18n();
 
   const announcements = [
     {
@@ -41,7 +39,7 @@ const AnnouncementsGrid = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-municipal-navy mb-4">
-            {t('announcements.title') || 'НОВИНИ И СЪОБЩЕНИЯ'}
+            НОВИНИ И СЪОБЩЕНИЯ
           </h2>
           <div className="w-24 h-1 bg-municipal-green mx-auto"></div>
         </div>

@@ -8,10 +8,8 @@ import {
   Phone,
   Mail
 } from "lucide-react";
-import { useI18n } from "@/i18n";
 
 const QuickLinksSection = () => {
-  const { t } = useI18n();
 
   const quickLinks = [
     {
@@ -69,7 +67,7 @@ const QuickLinksSection = () => {
           {/* Quick Links */}
           <div>
             <h3 className="text-2xl font-bold mb-6">
-              {t('quickLinks.title') || 'БЪРЗИ ВРЪЗКИ'}
+              БЪРЗИ ВРЪЗКИ
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {quickLinks.map((link, index) => {
@@ -101,7 +99,7 @@ const QuickLinksSection = () => {
           {/* Contact Information */}
           <div>
             <h3 className="text-2xl font-bold mb-6">
-              {t('contact.title') || 'КОНТАКТ ИНФОРМАЦИЯ'}
+              КОНТАКТ ИНФОРМАЦИЯ
             </h3>
             <div className="space-y-4">
               {contactInfo.map((info, index) => {
@@ -122,7 +120,7 @@ const QuickLinksSection = () => {
             
             <div className="mt-6">
               <h4 className="font-semibold mb-3 text-municipal-green">
-                {t('workingHours.title') || 'РАБОТНО ВРЕМЕ'}
+                РАБОТНО ВРЕМЕ
               </h4>
               <div className="text-sm text-white/80 space-y-1">
                 <p>Понеделник - Петък: 08:30 - 17:30</p>

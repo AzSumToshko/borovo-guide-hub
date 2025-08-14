@@ -10,11 +10,9 @@ import {
   MapPin,
   Calendar
 } from "lucide-react";
-import { useI18n } from "@/i18n";
 import { Link } from "react-router-dom";
 
 const ServicesGrid = () => {
-  const { t } = useI18n();
 
   const services = [
     {
@@ -80,10 +78,10 @@ const ServicesGrid = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-municipal-navy mb-4">
-            {t('services.title') || 'ОНЛАЙН УСЛУГИ'}
+            ОНЛАЙН УСЛУГИ
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t('services.subtitle') || 'Бърз и удобен достъп до всички услуги на Община Борово'}
+            Бърз и удобен достъп до всички услуги на Община Борово
           </p>
           <div className="w-24 h-1 bg-municipal-green mx-auto mt-4"></div>
         </div>
@@ -112,7 +110,7 @@ const ServicesGrid = () => {
                     className="border-municipal-green text-municipal-green hover:bg-municipal-green hover:text-white"
                   >
                     <Link to={service.link}>
-                      {t('common.learnMore') || 'Научи повече'}
+                      Научи повече
                     </Link>
                   </Button>
                 </CardContent>
