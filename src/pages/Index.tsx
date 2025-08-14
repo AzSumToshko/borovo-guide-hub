@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProjectsBanner from "@/components/ProjectsBanner";
-import NewsEventsSection from "@/components/NewsEventsSection";
+import NewsCalendarSection from "@/components/NewsCalendarSection";
 import StatsSection from "@/components/StatsSection";
 import AnnouncementsGrid from "@/components/AnnouncementsGrid";
 import QuickLinksSection from "@/components/QuickLinksSection";
@@ -13,7 +13,7 @@ const Index = () => {
       <Header />
       <Hero />
       <ProjectsBanner />
-      <NewsEventsSection />
+      <NewsCalendarSection />
       <StatsSection />
       <AnnouncementsGrid />
       <QuickLinksSection />
