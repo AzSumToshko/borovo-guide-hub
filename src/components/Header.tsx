@@ -10,23 +10,6 @@ const Header = () => {
   return (
     <header className="bg-background shadow-[var(--shadow-header)]">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-primary text-primary-foreground px-3 py-1 rounded">Прескочи към съдържанието</a>
-      {/* Top utility bar */}
-      <div className="bg-muted py-2" role="region" aria-label="Помощна лента">
-        <div className="container mx-auto px-4 flex justify-between items-center text-sm">
-          <div className="flex items-center gap-6">
-            <span className="text-muted-foreground">ОБЩИНА БОРОВО</span>
-            <span className="text-muted-foreground">© 2025 Всички права запазени</span>
-            <a href="/information-protection" className="text-muted-foreground hover:underline">Защита на личните данни</a>
-            <a href="/accessibility" className="text-muted-foreground hover:underline">Достъпност на съдържанието</a>
-          </div>
-          <div className="flex items-center gap-6">
-            <span className="text-muted-foreground">Уеб сайт и поддръжка: Antama ЕООД</span>
-            <button aria-label="Смяна на език" className="text-sm underline underline-offset-4" onClick={() => setLocale(locale === "bg" ? "en" : "bg")}>
-              {locale === "bg" ? "EN" : "BG"}
-            </button>
-          </div>
-        </div>
-      </div>
 
       {/* Main header */}
       <div className="container mx-auto px-4 py-4">
@@ -89,8 +72,8 @@ const Header = () => {
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     За Общината
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background">
+                  <NavigationMenuContent className="left-0 top-full">
+                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg">
                       <li>
                         <NavigationMenuLink asChild>
                           <a href="/about" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
@@ -131,8 +114,8 @@ const Header = () => {
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Администрация
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background">
+                  <NavigationMenuContent className="left-0 top-full">
+                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg">
                       <li>
                         <NavigationMenuLink asChild>
                           <a href="/administration" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
@@ -173,8 +156,8 @@ const Header = () => {
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Дейности и услуги
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background">
+                  <NavigationMenuContent className="left-0 top-full">
+                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg">
                       <li>
                         <NavigationMenuLink asChild>
                           <a href="/services" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
@@ -215,8 +198,8 @@ const Header = () => {
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Актуално
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background">
+                  <NavigationMenuContent className="left-0 top-full">
+                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg">
                       <li>
                         <NavigationMenuLink asChild>
                           <a href="/news" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
@@ -257,8 +240,8 @@ const Header = () => {
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Общински съвет
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background">
+                  <NavigationMenuContent className="left-0 top-full">
+                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg">
                       <li>
                         <NavigationMenuLink asChild>
                           <a href="/council" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
