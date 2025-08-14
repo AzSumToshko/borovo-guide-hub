@@ -51,7 +51,7 @@ const NewsletterSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           
           {/* Newsletter Section */}
-          <Card className="border-0 shadow-lg bg-gradient-to-br from-background to-background/95 backdrop-blur-sm">
+          <Card className="border-0 shadow-lg bg-gradient-to-br from-background to-background/95 backdrop-blur-sm h-full flex flex-col">
             <CardHeader className="text-center pb-6">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div className="p-3 bg-primary/10 rounded-full">
@@ -66,7 +66,7 @@ const NewsletterSection = () => {
               </p>
             </CardHeader>
             
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-6 flex-1 flex flex-col justify-between">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Input
@@ -94,18 +94,7 @@ const NewsletterSection = () => {
                 </div>
               </form>
 
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border/50">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">1,200+</div>
-                  <div className="text-sm text-muted-foreground">Абонати</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary">Седмично</div>
-                  <div className="text-sm text-muted-foreground">Честота</div>
-                </div>
-              </div>
-
-              <div className="bg-muted/30 rounded-lg p-4">
+              <div className="bg-muted/30 rounded-lg p-4 mt-6">
                 <h4 className="font-medium text-sm mb-2 text-foreground">В бюлетина ще намерите:</h4>
                 <ul className="space-y-1 text-sm text-muted-foreground">
                   <li>• Актуални новини и събития</li>
@@ -118,7 +107,7 @@ const NewsletterSection = () => {
           </Card>
 
           {/* Surveys Section */}
-          <Card className="border-0 shadow-lg bg-gradient-to-br from-background to-background/95 backdrop-blur-sm">
+          <Card className="border-0 shadow-lg bg-gradient-to-br from-background to-background/95 backdrop-blur-sm h-full flex flex-col">
             <CardHeader className="text-center pb-6">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div className="p-3 bg-secondary/20 rounded-full">
@@ -133,55 +122,22 @@ const NewsletterSection = () => {
               </p>
             </CardHeader>
             
-            <CardContent className="space-y-4">
-              {surveys.map((survey) => (
-                <div 
-                  key={survey.id}
-                  className="group p-4 border border-border/50 rounded-lg hover:shadow-md transition-all duration-200 hover:border-primary/30 bg-background/50"
+            <CardContent className="space-y-4 flex-1 flex flex-col justify-between">
+              <div className="space-y-4">
+                <Button 
+                  variant="outline" 
+                  className="w-full border-primary/20 hover:bg-primary/5 hover:border-primary"
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h4 className="font-medium text-foreground group-hover:text-primary transition-colors">
-                          {survey.title}
-                        </h4>
-                        {survey.isActive && (
-                          <Badge variant="secondary" className="text-xs">
-                            Активна
-                          </Badge>
-                        )}
-                      </div>
-                      <p className="text-sm text-muted-foreground mb-2">
-                        {survey.description}
-                      </p>
-                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <Users className="h-3 w-3" />
-                          <span>{survey.participants} участници</span>
-                        </div>
-                        <div>
-                          Краен срок: {new Date(survey.deadline).toLocaleDateString('bg-BG')}
-                        </div>
-                      </div>
-                    </div>
-                    <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors mt-1" />
-                  </div>
+                  <FileText className="h-4 w-4 mr-2" />
+                  Виж всички анкети
+                </Button>
+
+                <div className="bg-accent/20 rounded-lg p-4">
+                  <h4 className="font-medium text-sm mb-2 text-foreground">Защо е важно да участвате?</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Вашето мнение помага на общината да взема по-добри решения и да подобрява качеството на живот в града.
+                  </p>
                 </div>
-              ))}
-
-              <Button 
-                variant="outline" 
-                className="w-full mt-4 border-primary/20 hover:bg-primary/5 hover:border-primary"
-              >
-                <FileText className="h-4 w-4 mr-2" />
-                Виж всички анкети
-              </Button>
-
-              <div className="bg-accent/20 rounded-lg p-4 mt-6">
-                <h4 className="font-medium text-sm mb-2 text-foreground">Защо е важно да участвате?</h4>
-                <p className="text-sm text-muted-foreground">
-                  Вашето мнение помага на общината да взема по-добри решения и да подобрява качеството на живот в града.
-                </p>
               </div>
             </CardContent>
           </Card>
