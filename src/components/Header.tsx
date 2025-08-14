@@ -64,11 +64,11 @@ const Header = () => {
 
       {/* Navigation */}
       <nav className="bg-primary text-primary-foreground" role="navigation" aria-label="Главна навигация">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 relative">
           <div className="flex items-center">
-            <NavigationMenu>
+            <NavigationMenu className="relative">
               <NavigationMenuList className="flex items-center space-x-0">
-                <NavigationMenuItem>
+                <NavigationMenuItem className="relative">
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     За Общината
                   </NavigationMenuTrigger>
@@ -110,7 +110,7 @@ const Header = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem>
+                <NavigationMenuItem className="relative">
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Администрация
                   </NavigationMenuTrigger>
@@ -152,7 +152,7 @@ const Header = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem>
+                <NavigationMenuItem className="relative">
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Дейности и услуги
                   </NavigationMenuTrigger>
@@ -194,7 +194,7 @@ const Header = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem>
+                <NavigationMenuItem className="relative">
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Актуално
                   </NavigationMenuTrigger>
@@ -236,7 +236,7 @@ const Header = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem>
+                <NavigationMenuItem className="relative">
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Общински съвет
                   </NavigationMenuTrigger>
