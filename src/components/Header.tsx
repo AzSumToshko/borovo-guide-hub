@@ -72,8 +72,8 @@ const Header = () => {
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     За Общината
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="left-0 top-full">
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg">
+                  <NavigationMenuContent>
+                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg z-50">
                       <li>
                         <NavigationMenuLink asChild>
                           <a href="/about" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
@@ -114,8 +114,8 @@ const Header = () => {
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Администрация
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="left-0 top-full">
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg">
+                  <NavigationMenuContent>
+                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg z-50">
                       <li>
                         <NavigationMenuLink asChild>
                           <a href="/administration" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
@@ -156,8 +156,8 @@ const Header = () => {
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Дейности и услуги
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="left-0 top-full">
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg">
+                  <NavigationMenuContent>
+                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg z-50">
                       <li>
                         <NavigationMenuLink asChild>
                           <a href="/services" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
@@ -198,8 +198,8 @@ const Header = () => {
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Актуално
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="left-0 top-full">
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg">
+                  <NavigationMenuContent>
+                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg z-50">
                       <li>
                         <NavigationMenuLink asChild>
                           <a href="/news" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
@@ -240,8 +240,8 @@ const Header = () => {
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Общински съвет
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="left-0 top-full">
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg">
+                  <NavigationMenuContent>
+                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg z-50">
                       <li>
                         <NavigationMenuLink asChild>
                           <a href="/council" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">

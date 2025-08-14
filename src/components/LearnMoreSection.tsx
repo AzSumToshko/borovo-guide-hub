@@ -1,12 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Camera, MapPin, Building, BookOpen } from "lucide-react";
+import galleryShowcase from "@/assets/gallery-showcase.jpg";
 
 const LearnMoreSection = () => {
   const learnMoreItems = [
     {
       title: "ГАЛЕРИЯ",
       subtitle: "Разгледайте снимки от Борово",
-      image: "/assets/borovo-hero.jpg",
+      image: galleryShowcase,
       icon: Camera,
       type: "large",
       link: "/gallery"
