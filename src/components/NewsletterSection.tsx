@@ -126,7 +126,7 @@ const NewsletterSection = () => {
               <div className="space-y-4">
                 <Button 
                   variant="outline" 
-                  className="w-full border-primary/20 hover:bg-primary/5 hover:border-primary"
+                  className="w-full border-primary/20 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
                 >
                   <FileText className="h-4 w-4 mr-2" />
                   Виж всички анкети

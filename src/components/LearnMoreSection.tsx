@@ -66,7 +66,7 @@ const LearnMoreSection = () => {
           </Card>
 
           {/* Right Column - 3 smaller cards */}
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 gap-6 lg:content-center">
             {learnMoreItems.slice(1).map((item, index) => {
               const IconComponent = item.icon;
               return (
