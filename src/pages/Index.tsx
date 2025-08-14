@@ -1,18 +1,22 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import ServiceBar from "@/components/ServiceBar";
 import ProjectsBanner from "@/components/ProjectsBanner";
-import NewsSection from "@/components/NewsSection";
+import ServicesGrid from "@/components/ServicesGrid";
+import AnnouncementsGrid from "@/components/AnnouncementsGrid";
+import QuickLinksSection from "@/components/QuickLinksSection";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <Breadcrumbs />
       <Hero />
-      <ServiceBar />
       <ProjectsBanner />
-      <NewsSection />
+      <ServicesGrid />
+      <AnnouncementsGrid />
+      <QuickLinksSection />
       <Footer />
     </div>
   );
