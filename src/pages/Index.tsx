@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import ProjectsBanner from "@/components/ProjectsBanner";
 import NewsEventsSection from "@/components/NewsEventsSection";
 import StatsSection from "@/components/StatsSection";
+import EventsCalendarSection from "@/components/EventsCalendarSection";
 import AnnouncementsGrid from "@/components/AnnouncementsGrid";
 import QuickLinksSection from "@/components/QuickLinksSection";
 import Footer from "@/components/Footer";
@@ -15,6 +16,7 @@ const Index = () => {
       <ProjectsBanner />
       <NewsEventsSection />
       <StatsSection />
+      <EventsCalendarSection />
       {/* <AnnouncementsGrid />
       <QuickLinksSection /> */}
       <Footer />
