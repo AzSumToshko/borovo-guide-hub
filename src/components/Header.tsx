@@ -13,17 +13,17 @@ const Header = () => {
       {/* Top utility bar */}
       <div className="bg-muted py-2" role="region" aria-label="Помощна лента">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
-          <div className="flex items-center gap-4">
-            <span className="text-muted-foreground">А</span>
-            <span className="text-muted-foreground">А+</span>
-            <span className="font-bold">А</span>
+          <div className="flex items-center gap-6">
+            <span className="text-muted-foreground">ОБЩИНА БОРОВО</span>
+            <span className="text-muted-foreground">© 2025 Всички права запазени</span>
+            <a href="/information-protection" className="text-muted-foreground hover:underline">Защита на личните данни</a>
+            <a href="/accessibility" className="text-muted-foreground hover:underline">Достъпност на съдържанието</a>
           </div>
           <div className="flex items-center gap-6">
+            <span className="text-muted-foreground">Уеб сайт и поддръжка: Antama ЕООД</span>
             <button aria-label="Смяна на език" className="text-sm underline underline-offset-4" onClick={() => setLocale(locale === "bg" ? "en" : "bg")}>
               {locale === "bg" ? "EN" : "BG"}
             </button>
-            <a href="/accessibility" className="text-muted-foreground hover:underline">{t("footer.accessibility")}</a>
-            <a href="/sitemap" className="text-muted-foreground hover:underline">{t("footer.sitemap")}</a>
           </div>
         </div>
       </div>
@@ -79,150 +79,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Navigation */}
-      <nav className="bg-primary text-primary-foreground" role="navigation" aria-label="Главна навигация">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center">
-            <NavigationMenu>
-              <NavigationMenuList className="flex items-center space-x-0">
-                <NavigationMenuItem>
-                  <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm" asChild>
-                    <a href="/about">{t("nav.about")}</a>
-                  </Button>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
-                    {t("nav.admin")}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background">
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/services" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">{t("nav.services")}</div>
-                            <p className="text-sm text-muted-foreground">Онлайн услуги и описания</p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/services/documents" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Документи и формуляри</div>
-                            <p className="text-sm text-muted-foreground">Образци и заявления</p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/services/local-taxes" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Местни данъци и такси</div>
-                            <p className="text-sm text-muted-foreground">Информация и плащания</p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/services/technical" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Технически услуги</div>
-                            <p className="text-sm text-muted-foreground">Инфраструктура и строителство</p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/services/social" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Социални услуги</div>
-                            <p className="text-sm text-muted-foreground">Подкрепа и грижа</p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
-                    {t("nav.news")}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background">
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/news" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Всички новини</div>
-                            <p className="text-sm text-muted-foreground">Последни публикации</p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/news/events" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Събития</div>
-                            <p className="text-sm text-muted-foreground">Календар и покани</p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/news/announcements" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Обяви и съобщения</div>
-                            <p className="text-sm text-muted-foreground">Официални съобщения</p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/news/tenders" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Търгове и конкурси</div>
-                            <p className="text-sm text-muted-foreground">Документи и условия</p>
-                          </a>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm" asChild>
-                    <a href="/registers">{t("nav.registers")}</a>
-                  </Button>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm" asChild>
-                    <a href="/buyer-profile">{t("nav.buyer")}</a>
-                  </Button>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm" asChild>
-                    <a href="/declarations">{t("nav.declarations")}</a>
-                  </Button>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm" asChild>
-                    <a href="/access-to-information">{t("nav.access")}</a>
-                  </Button>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm" asChild>
-                    <a href="/contacts">{t("nav.contacts")}</a>
-                  </Button>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <Button variant="ghost" className="text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm" asChild>
-                    <a href="/council">{t("nav.council")}</a>
-                  </Button>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-        </div>
-      </nav>
       {/* Breadcrumbs */}
       <div className="bg-muted/60" role="region" aria-label="Иерархична навигация">
         <Breadcrumbs />
