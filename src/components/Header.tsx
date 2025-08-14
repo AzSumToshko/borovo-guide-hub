@@ -74,8 +74,8 @@ const Header = () => {
                     За Общината
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-screen max-w-none p-8 bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl -ml-4">
-                      <div className="container mx-auto">
+                    <div className="absolute left-0 top-full w-screen bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl z-50">
+                      <div className="container mx-auto p-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* Left section with cards */}
                           <div className="col-span-4 grid grid-cols-2 gap-4">
@@ -156,8 +156,8 @@ const Header = () => {
                     Администрация
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-screen max-w-none p-8 bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl -ml-4">
-                      <div className="container mx-auto">
+                    <div className="absolute left-0 top-full w-screen bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl z-50">
+                      <div className="container mx-auto p-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* Mayor section with image */}
                           <div className="col-span-4">
@@ -217,8 +217,8 @@ const Header = () => {
                     Дейности и услуги
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-screen max-w-none p-8 bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl -ml-4">
-                      <div className="container mx-auto">
+                    <div className="absolute left-0 top-full w-screen bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl z-50">
+                      <div className="container mx-auto p-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* Service category cards */}
                           <div className="col-span-5 grid grid-cols-3 gap-3">
@@ -295,8 +295,8 @@ const Header = () => {
                     Актуално
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-screen max-w-none p-8 bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl -ml-4">
-                      <div className="container mx-auto">
+                    <div className="absolute left-0 top-full w-screen bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl z-50">
+                      <div className="container mx-auto p-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* News cards with icons */}
                           <div className="col-span-4 space-y-4">
@@ -368,8 +368,8 @@ const Header = () => {
                     Общински съвет
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-screen max-w-none p-8 bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl -ml-4">
-                      <div className="container mx-auto">
+                    <div className="absolute left-0 top-full w-screen bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl z-50">
+                      <div className="container mx-auto p-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* Council cards with images */}
                           <div className="col-span-4 space-y-4">
