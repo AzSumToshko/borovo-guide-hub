@@ -73,40 +73,34 @@ const Header = () => {
                     За Общината
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg z-50">
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/about" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">История</div>
-                            <p className="text-sm text-muted-foreground">История на общината</p>
+                    <div className="w-[500px] p-6 bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <a href="/about" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">История</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">История на общината</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/about/geography" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">География</div>
-                            <p className="text-sm text-muted-foreground">Местоположение и природа</p>
+                        </div>
+                        <div>
+                          <a href="/about/geography" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">География</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Местоположение и природа</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/about/symbols" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Символи</div>
-                            <p className="text-sm text-muted-foreground">Герб и знаме</p>
+                        </div>
+                        <div>
+                          <a href="/about/symbols" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Символи</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Герб и знаме</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/about/tourism" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Туризъм</div>
-                            <p className="text-sm text-muted-foreground">Забележителности</p>
+                        </div>
+                        <div>
+                          <a href="/about/tourism" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Туризъм</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Забележителности</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
+                        </div>
+                      </div>
+                    </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
@@ -115,40 +109,34 @@ const Header = () => {
                     Администрация
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg z-50">
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/administration" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Структура</div>
-                            <p className="text-sm text-muted-foreground">Организационна структура</p>
+                    <div className="w-[500px] p-6 bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <a href="/administration" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Структура</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Организационна структура</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/administration/mayor" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Кмет</div>
-                            <p className="text-sm text-muted-foreground">Кмет на общината</p>
+                        </div>
+                        <div>
+                          <a href="/administration/mayor" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Кмет</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Кмет на общината</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/administration/deputy-mayors" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Заместник-кметове</div>
-                            <p className="text-sm text-muted-foreground">Заместник-кметове</p>
+                        </div>
+                        <div>
+                          <a href="/administration/deputy-mayors" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Заместник-кметове</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Заместник-кметове</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/administration/departments" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Отдели</div>
-                            <p className="text-sm text-muted-foreground">Административни отдели</p>
+                        </div>
+                        <div>
+                          <a href="/administration/departments" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Отдели</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Административни отдели</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
+                        </div>
+                      </div>
+                    </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
@@ -157,40 +145,34 @@ const Header = () => {
                     Дейности и услуги
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg z-50">
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/services" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Електронни услуги</div>
-                            <p className="text-sm text-muted-foreground">Онлайн услуги</p>
+                    <div className="w-[500px] p-6 bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <a href="/services" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Електронни услуги</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Онлайн услуги</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/services/documents" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Документи и формуляри</div>
-                            <p className="text-sm text-muted-foreground">Образци и заявления</p>
+                        </div>
+                        <div>
+                          <a href="/services/documents" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Документи и формуляри</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Образци и заявления</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/services/local-taxes" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Местни данъци и такси</div>
-                            <p className="text-sm text-muted-foreground">Информация и плащания</p>
+                        </div>
+                        <div>
+                          <a href="/services/local-taxes" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Местни данъци и такси</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Информация и плащания</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/services/social" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Социални услуги</div>
-                            <p className="text-sm text-muted-foreground">Подкрепа и грижа</p>
+                        </div>
+                        <div>
+                          <a href="/services/social" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Социални услуги</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Подкрепа и грижа</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
+                        </div>
+                      </div>
+                    </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
@@ -199,40 +181,34 @@ const Header = () => {
                     Актуално
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg z-50">
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/news" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Новини</div>
-                            <p className="text-sm text-muted-foreground">Последни публикации</p>
+                    <div className="w-[500px] p-6 bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <a href="/news" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Новини</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Последни публикации</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/news/events" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Събития</div>
-                            <p className="text-sm text-muted-foreground">Календар и покани</p>
+                        </div>
+                        <div>
+                          <a href="/news/events" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Събития</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Календар и покани</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/news/announcements" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Обяви</div>
-                            <p className="text-sm text-muted-foreground">Официални съобщения</p>
+                        </div>
+                        <div>
+                          <a href="/news/announcements" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Обяви</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Официални съобщения</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/news/tenders" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Търгове и конкурси</div>
-                            <p className="text-sm text-muted-foreground">Обществени поръчки</p>
+                        </div>
+                        <div>
+                          <a href="/news/tenders" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Търгове и конкурси</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Обществени поръчки</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
+                        </div>
+                      </div>
+                    </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
@@ -241,40 +217,34 @@ const Header = () => {
                     Общински съвет
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-2 p-4 w-[320px] sm:w-[500px] md:w-[600px] sm:grid-cols-2 bg-background border rounded-md shadow-lg z-50">
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/council" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Състав</div>
-                            <p className="text-sm text-muted-foreground">Членове на съвета</p>
+                    <div className="w-[500px] p-6 bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <a href="/council" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Състав</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Членове на съвета</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/council/sessions" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Сесии</div>
-                            <p className="text-sm text-muted-foreground">Заседания и решения</p>
+                        </div>
+                        <div>
+                          <a href="/council/sessions" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Сесии</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Заседания и решения</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/council/decisions" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Решения</div>
-                            <p className="text-sm text-muted-foreground">Архив на решенията</p>
+                        </div>
+                        <div>
+                          <a href="/council/decisions" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Решения</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Архив на решенията</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <a href="/council/regulations" className="block rounded-md p-3 hover:bg-accent hover:text-accent-foreground">
-                            <div className="font-semibold">Нормативни актове</div>
-                            <p className="text-sm text-muted-foreground">Правилници и наредби</p>
+                        </div>
+                        <div>
+                          <a href="/council/regulations" className="group block p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors">
+                            <div className="font-semibold text-gray-900 dark:text-gray-100 mb-1">Нормативни актове</div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Правилници и наредби</p>
                           </a>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
+                        </div>
+                      </div>
+                    </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
               </NavigationMenuList>
