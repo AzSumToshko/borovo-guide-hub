@@ -109,7 +109,7 @@ const MunicipalActivitiesSection = () => {
           {activities.map((activity, index) => (
             <Card 
               key={index} 
-              className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-white dark:bg-slate-800 animate-fade-in"
+              className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white dark:bg-slate-800 animate-fade-in h-full flex flex-col"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -128,9 +128,9 @@ const MunicipalActivitiesSection = () => {
                 </h3>
               </div>
               
-              <div className="bg-slate-700 dark:bg-slate-900 text-white p-6 relative">
+              <div className="bg-slate-700 dark:bg-slate-900 text-white p-6 relative flex-1 flex flex-col">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent"></div>
-                <ul className="space-y-3">
+                <ul className="space-y-3 flex-1">
                   {activity.items.map((item, itemIndex) => (
                     <li key={itemIndex} className="text-xs flex items-start group/item cursor-pointer">
                       <ArrowRight className="text-accent mr-3 mt-0.5 flex-shrink-0 w-3 h-3 transition-transform duration-300 group-hover/item:translate-x-1" />
