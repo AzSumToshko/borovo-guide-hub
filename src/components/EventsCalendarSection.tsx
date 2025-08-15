@@ -117,27 +117,29 @@ const EventsCalendarSection = () => {
                   Избери дата
                 </CardTitle>
               </CardHeader>
-              <CardContent className="p-3 sm:p-6">
-                <Calendar
-                  mode="single"
-                  selected={selectedDate}
-                  onSelect={handleDateSelect}
-                  className="rounded-md border-0 w-full pointer-events-auto"
-                  modifiers={{
-                    hasEvents: (date) => hasEventsOnDate(date)
-                  }}
-                  modifiersClassNames={{
-                    hasEvents: "relative after:absolute after:bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full after:animate-pulse"
-                  }}
-                  modifiersStyles={{
-                    hasEvents: {
-                      backgroundColor: 'hsl(var(--primary) / 0.1)',
-                      color: 'hsl(var(--primary))',
-                      fontWeight: 'bold',
-                      border: '1px solid hsl(var(--primary) / 0.3)'
-                    }
-                  }}
-                />
+              <CardContent className="p-2 sm:p-6">
+                <div className="w-full overflow-hidden">
+                  <Calendar
+                    mode="single"
+                    selected={selectedDate}
+                    onSelect={handleDateSelect}
+                    className="rounded-md border-0 w-full pointer-events-auto scale-[0.85] sm:scale-100 origin-center mx-auto"
+                    modifiers={{
+                      hasEvents: (date) => hasEventsOnDate(date)
+                    }}
+                    modifiersClassNames={{
+                      hasEvents: "relative after:absolute after:bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full after:animate-pulse"
+                    }}
+                    modifiersStyles={{
+                      hasEvents: {
+                        backgroundColor: 'hsl(var(--primary) / 0.1)',
+                        color: 'hsl(var(--primary))',
+                        fontWeight: 'bold',
+                        border: '1px solid hsl(var(--primary) / 0.3)'
+                      }
+                    }}
+                  />
+                </div>
                 <div className={`mt-4 p-3 bg-muted/50 rounded-lg transition-all duration-300 ${isDateChanging ? 'bg-primary/10 ring-2 ring-primary/20' : ''}`}>
                   <h4 className="font-medium text-sm mb-2 flex items-center gap-2">
                     <Clock className={`h-4 w-4 transition-transform duration-300 ${isDateChanging ? 'rotate-180' : ''}`} />
