@@ -18,6 +18,7 @@ import SocialServicesPage from "./pages/SocialServicesPage";
 import EventsPage from "./pages/EventsPage";
 import AnnouncementsPage from "./pages/AnnouncementsPage";
 import TendersPage from "./pages/TendersPage";
+import TenderDetailPage from "./pages/TenderDetailPage";
 import PublicRegistersPage from "./pages/PublicRegistersPage";
 import BuyerProfilePage from "./pages/BuyerProfilePage";
 import ProcurementDetailPage from "./pages/ProcurementDetailPage";
@@ -48,6 +49,7 @@ const App = () => (
             <Route path="/news/events" element={<EventsPage />} />
             <Route path="/news/announcements" element={<AnnouncementsPage />} />
             <Route path="/news/tenders" element={<TendersPage />} />
+            <Route path="/news/tenders/:id" element={<TenderDetailPage />} />
             <Route path="/registers" element={<PublicRegistersPage />} />
             <Route path="/buyer-profile" element={<BuyerProfilePage />} />
             <Route path="/buyer-profile/:id" element={<ProcurementDetailPage />} />
