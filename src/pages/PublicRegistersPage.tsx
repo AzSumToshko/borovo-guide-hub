@@ -25,8 +25,226 @@ const PublicRegistersPage = () => {
             <p className="opacity-90 mt-2">{descBg}</p>
           </div>
         </div>
-        <div className="container mx-auto px-4 py-10 space-y-4">
-          <p className="text-muted-foreground">Тук ще бъдат публикувани връзки към публичните регистри (пример: регистър на разрешителни, регистър на общинските имоти и др.).</p>
+        <div className="container mx-auto px-4 py-10 space-y-6">
+          <div className="bg-card rounded-lg p-6 shadow-sm">
+            <h2 className="text-xl font-semibold mb-4 text-primary">Договори и разрешения по заеми и природни отношения</h2>
+            <div className="space-y-4 mb-6">
+              <p className="text-sm text-muted-foreground">Съгласно регистри в реално време за:</p>
+              <p className="text-sm text-muted-foreground">
+                "Договори за помещения, за павилиони, за терени, за концесии, за съоръжения, ДМА и др, за взбивки, за 
+                земеделски земи;"
+              </p>
+              <p className="text-sm text-muted-foreground">
+                "Разрешения за РИЕ, за търговска дейност на открито, за поставяне на нека каравала клетка, за 
+                максимелрой превоз и др."
+              </p>
+            </div>
+            
+            <div className="space-y-3">
+              <a 
+                href="https://tourism.government.bg/bg/kategorii/turizm/nacionalen-turisticheski-registar" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm"
+              >
+                <span className="mr-2">▷</span>
+                Национален туристически регистър
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm"
+              >
+                <span className="mr-2">▷</span>
+                Общинска собственост - публична
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm"
+              >
+                <span className="mr-2">▷</span>
+                Общинска собственост - частна
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm"
+              >
+                <span className="mr-2">▷</span>
+                Регистър на разпоредителните сделки
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm"
+              >
+                <span className="mr-2">▷</span>
+                Регистър на гражданските дружества, в които участва общината
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm"
+              >
+                <span className="mr-2">▷</span>
+                Регистър за юридическите лица с нестопанска цел, в които участва общината
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm"
+              >
+                <span className="mr-2">▷</span>
+                Регистър на общинските предприятия
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm"
+              >
+                <span className="mr-2">▷</span>
+                Регистър на търговските дружества с общинско участие
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm"
+              >
+                <span className="mr-2">▷</span>
+                Регистър на концесиите
+              </a>
+            </div>
+          </div>
+          
+          <div className="bg-card rounded-lg p-6 shadow-sm">
+            <h3 className="text-lg font-semibold mb-4 text-primary">Документи и регистри</h3>
+            <div className="space-y-3">
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm group"
+              >
+                <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center mr-3 flex-shrink-0">
+                  <span className="text-xs text-blue-600 font-semibold">PDF</span>
+                </div>
+                Регистър на съоръженията от находище на минерална вода "Наречености минерални бани", Община Асеновград
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm group"
+              >
+                <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center mr-3 flex-shrink-0">
+                  <span className="text-xs text-blue-600 font-semibold">PDF</span>
+                </div>
+                Регистър на сгражденията на собствениците в сгради в режим на етажна собственост
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm group"
+              >
+                <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center mr-3 flex-shrink-0">
+                  <span className="text-xs text-blue-600 font-semibold">PDF</span>
+                </div>
+                Регистър за нерегулирано работно време на търговските обекти
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm group"
+              >
+                <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center mr-3 flex-shrink-0">
+                  <span className="text-xs text-blue-600 font-semibold">PDF</span>
+                </div>
+                Регистър на технически паспорти на сгради 2016-2019 г.
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm group"
+              >
+                <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center mr-3 flex-shrink-0">
+                  <span className="text-xs text-blue-600 font-semibold">PDF</span>
+                </div>
+                Регистър на обекти, въведени в експлоатация 2016-2017 г.
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm group"
+              >
+                <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center mr-3 flex-shrink-0">
+                  <span className="text-xs text-blue-600 font-semibold">PDF</span>
+                </div>
+                Регистър на издадените разрешения за строеж 2016-2020 г.
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm group"
+              >
+                <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center mr-3 flex-shrink-0">
+                  <span className="text-xs text-blue-600 font-semibold">PDF</span>
+                </div>
+                Регистър на фирми-изпълнители на СРД, доставки и услуги на обекти, възложени от общината през 12.2015 - 07.2025 г.
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm group"
+              >
+                <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center mr-3 flex-shrink-0">
+                  <span className="text-xs text-blue-600 font-semibold">PDF</span>
+                </div>
+                Списък на блокосредносттелните разпореждения с блокове
+              </a>
+              
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm group"
+              >
+                <div className="w-6 h-6 bg-blue-100 rounded flex items-center justify-center mr-3 flex-shrink-0">
+                  <span className="text-xs text-blue-600 font-semibold">PDF</span>
+                </div>
+                Регистър на издадените карти за паркиране на хора с трайни увреждания
+              </a>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />
