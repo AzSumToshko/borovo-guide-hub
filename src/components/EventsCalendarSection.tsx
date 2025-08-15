@@ -94,126 +94,52 @@ const EventsCalendarSection = () => {
   const selectedDateEvents = selectedDate ? getEventsForDate(selectedDate) : events;
 
   return (
-    <section className="py-16 bg-gradient-to-br from-background via-background to-accent/5">
+    <section className="py-12 sm:py-16 bg-gradient-to-br from-background via-background to-accent/5">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 sm:mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <CalendarDays className="h-8 w-8 text-primary" />
-            <h2 className="text-3xl font-bold text-foreground">Предстоящи събития</h2>
+            <CalendarDays className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Предстоящи събития</h2>
           </div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">
             Разгледайте предстоящите събития, съобщения и обяви. Изберете дата от календара за да видите актуалната информация.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Events List - Left Side */}
-          <div className="lg:col-span-2 order-2 lg:order-1">
-            <Tabs defaultValue="all" className="w-full">
-              <TabsList className="grid w-full grid-cols-4 mb-6">
-                {categories.map((category) => (
-                  <TabsTrigger 
-                    key={category.id} 
-                    value={category.id}
-                    className="text-xs sm:text-sm relative"
-                  >
-                    {category.label}
-                    <Badge variant="secondary" className="ml-1 text-xs">
-                      {category.count}
-                    </Badge>
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-
-              {categories.map((category) => (
-                <TabsContent key={category.id} value={category.id} className="space-y-4">
-                  {getFilteredEvents(category.id).filter(event => 
-                    selectedDate ? getEventsForDate(selectedDate).includes(event) : true
-                  ).map((event) => (
-                    <Card key={event.id} className="hover:shadow-md transition-shadow duration-200 border-l-4 border-l-primary">
-                      <CardHeader className="pb-3">
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex-1">
-                            <Badge variant="outline" className="mb-2 text-xs">
-                              {event.type}
-                            </Badge>
-                            <CardTitle className="text-lg leading-tight text-foreground hover:text-primary transition-colors cursor-pointer">
-                              {event.title}
-                            </CardTitle>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="pt-0">
-                        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                          {event.description}
-                        </p>
-                        <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-                          <div className="flex items-center gap-1">
-                            <CalendarDays className="h-3 w-3" />
-                            <span>Валидно до: {new Date(event.validUntil).toLocaleDateString('bg-BG')}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <MapPin className="h-3 w-3" />
-                            <span>{event.location}</span>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                  
-                  {getFilteredEvents(category.id).filter(event => 
-                    selectedDate ? getEventsForDate(selectedDate).includes(event) : true
-                  ).length === 0 && (
-                    <Card className="border-dashed">
-                      <CardContent className="flex items-center justify-center py-12">
-                        <div className="text-center">
-                          <CalendarDays className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                          <p className="text-muted-foreground">
-                            {selectedDate 
-                              ? `Няма събития за ${selectedDate.toLocaleDateString('bg-BG')} в тази категория`
-                              : "Няма събития в тази категория"
-                            }
-                          </p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  )}
-                </TabsContent>
-              ))}
-            </Tabs>
-          </div>
-
-          {/* Calendar - Right Side */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+          {/* Calendar - Mobile First */}
           <div className="order-1 lg:order-2">
-            <Card className="sticky top-4">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-center justify-center">
+            <Card className="lg:sticky lg:top-4">
+              <CardHeader className="pb-4">
+                <CardTitle className="flex items-center gap-2 text-center justify-center text-lg">
                   <CalendarDays className="h-5 w-5" />
                   Избери дата
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <Calendar
-                  mode="single"
-                  selected={selectedDate}
-                  onSelect={handleDateSelect}
-                  className="rounded-md border-0 w-full"
-                  modifiers={{
-                    hasEvents: (date) => hasEventsOnDate(date)
-                  }}
-                  modifiersClassNames={{
-                    hasEvents: "relative after:absolute after:bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full after:animate-pulse"
-                  }}
-                  modifiersStyles={{
-                    hasEvents: {
-                      backgroundColor: 'hsl(var(--primary) / 0.1)',
-                      color: 'hsl(var(--primary))',
-                      fontWeight: 'bold',
-                      border: '1px solid hsl(var(--primary) / 0.3)'
-                    }
-                  }}
-                />
+              <CardContent className="p-3 sm:p-6">
+                <div className="overflow-x-auto">
+                  <Calendar
+                    mode="single"
+                    selected={selectedDate}
+                    onSelect={handleDateSelect}
+                    className="rounded-md border-0 w-full min-w-[280px] pointer-events-auto mx-auto"
+                    modifiers={{
+                      hasEvents: (date) => hasEventsOnDate(date)
+                    }}
+                    modifiersClassNames={{
+                      hasEvents: "relative after:absolute after:bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full after:animate-pulse"
+                    }}
+                    modifiersStyles={{
+                      hasEvents: {
+                        backgroundColor: 'hsl(var(--primary) / 0.1)',
+                        color: 'hsl(var(--primary))',
+                        fontWeight: 'bold',
+                        border: '1px solid hsl(var(--primary) / 0.3)'
+                      }
+                    }}
+                  />
+                </div>
                 <div className={`mt-4 p-3 bg-muted/50 rounded-lg transition-all duration-300 ${isDateChanging ? 'bg-primary/10 ring-2 ring-primary/20' : ''}`}>
                   <h4 className="font-medium text-sm mb-2 flex items-center gap-2">
                     <Clock className={`h-4 w-4 transition-transform duration-300 ${isDateChanging ? 'rotate-180' : ''}`} />
@@ -235,6 +161,85 @@ const EventsCalendarSection = () => {
                 </div>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Events List - Below Calendar on Mobile */}
+          <div className="lg:col-span-2 order-2 lg:order-1">
+            <Tabs defaultValue="all" className="w-full">
+              {/* Mobile-optimized tabs with scrolling */}
+              <div className="overflow-x-auto mb-6">
+                <TabsList className="grid grid-cols-4 w-full min-w-[600px] sm:min-w-0 gap-1">
+                  {categories.map((category) => (
+                    <TabsTrigger 
+                      key={category.id} 
+                      value={category.id}
+                      className="text-xs sm:text-sm relative flex flex-col sm:flex-row items-center gap-1 px-2 py-2 sm:px-3 sm:py-2 whitespace-nowrap"
+                    >
+                      <span className="truncate">{category.label}</span>
+                      <Badge variant="secondary" className="text-xs px-1 py-0 min-w-[20px] h-5">
+                        {category.count}
+                      </Badge>
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </div>
+
+              {categories.map((category) => (
+                <TabsContent key={category.id} value={category.id} className="space-y-4">
+                  {getFilteredEvents(category.id).filter(event => 
+                    selectedDate ? getEventsForDate(selectedDate).includes(event) : true
+                  ).map((event) => (
+                    <Card key={event.id} className="hover:shadow-md transition-shadow duration-200 border-l-4 border-l-primary">
+                      <CardHeader className="pb-3 p-4 sm:p-6">
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex-1">
+                            <Badge variant="outline" className="mb-2 text-xs">
+                              {event.type}
+                            </Badge>
+                            <CardTitle className="text-base sm:text-lg leading-tight text-foreground hover:text-primary transition-colors cursor-pointer">
+                              {event.title}
+                            </CardTitle>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="pt-0 p-4 sm:p-6">
+                        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                          {event.description}
+                        </p>
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-4 text-xs text-muted-foreground">
+                          <div className="flex items-center gap-1">
+                            <CalendarDays className="h-3 w-3 flex-shrink-0" />
+                            <span>Валидно до: {new Date(event.validUntil).toLocaleDateString('bg-BG')}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MapPin className="h-3 w-3 flex-shrink-0" />
+                            <span>{event.location}</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                  
+                  {getFilteredEvents(category.id).filter(event => 
+                    selectedDate ? getEventsForDate(selectedDate).includes(event) : true
+                  ).length === 0 && (
+                    <Card className="border-dashed">
+                      <CardContent className="flex items-center justify-center py-8 sm:py-12">
+                        <div className="text-center">
+                          <CalendarDays className="h-8 w-8 sm:h-12 sm:w-12 text-muted-foreground mx-auto mb-4" />
+                          <p className="text-muted-foreground text-sm sm:text-base">
+                            {selectedDate 
+                              ? `Няма събития за ${selectedDate.toLocaleDateString('bg-BG')} в тази категория`
+                              : "Няма събития в тази категория"
+                            }
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )}
+                </TabsContent>
+              ))}
+            </Tabs>
           </div>
         </div>
       </div>
