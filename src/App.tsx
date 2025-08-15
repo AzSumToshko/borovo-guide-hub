@@ -27,6 +27,11 @@ import AccessToInformationPage from "./pages/AccessToInformationPage";
 import ContactsPage from "./pages/ContactsPage";
 import AccessibilityStatementPage from "./pages/AccessibilityStatementPage";
 import SitemapPage from "./pages/SitemapPage";
+import ProjectsPage from "./pages/ProjectsPage";
+import ProjectAnnouncementsPage from "./pages/ProjectAnnouncementsPage";
+import ProjectsInProgressPage from "./pages/ProjectsInProgressPage";
+import ProjectsCompletedPage from "./pages/ProjectsCompletedPage";
+import ProjectDetailPage from "./pages/ProjectDetailPage";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -59,6 +64,11 @@ const App = () => (
             <Route path="/accessibility" element={<AccessibilityStatementPage />} />
             <Route path="/sitemap" element={<SitemapPage />} />
             <Route path="/council" element={<CouncilPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/projects/announcements" element={<ProjectAnnouncementsPage />} />
+            <Route path="/projects/in-progress" element={<ProjectsInProgressPage />} />
+            <Route path="/projects/completed" element={<ProjectsCompletedPage />} />
+            <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
