@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 import { useI18n } from "@/i18n";
+import borovoHero from "@/assets/borovo-hero.jpg";
 
 const PublicRegistersPage = () => {
   const { t } = useI18n();
@@ -19,12 +20,27 @@ const PublicRegistersPage = () => {
       </Helmet>
       <Header />
       <main id="main">
-        <div className="bg-primary text-primary-foreground py-12">
-          <div className="container mx-auto px-4">
-            <h1 className="text-3xl font-bold">{t("nav.registers")}</h1>
-            <p className="opacity-90 mt-2">{descBg}</p>
+        <section className="relative h-[300px] sm:h-[400px] overflow-hidden">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${borovoHero})` }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-municipal-navy/90 via-municipal-navy/70 to-transparent"></div>
           </div>
-        </div>
+          
+          <div className="relative container mx-auto px-4 h-full flex items-center">
+            <div className="max-w-2xl text-white">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                {t("nav.registers")}
+              </h1>
+              <p className="text-base sm:text-lg opacity-90 leading-relaxed">
+                {descBg}
+              </p>
+            </div>
+          </div>
+          
+          <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-tl from-municipal-green/20 to-transparent"></div>
+        </section>
         <div className="container mx-auto px-4 py-10 space-y-6">
           <div className="bg-card rounded-lg p-6 shadow-sm">
             <h2 className="text-xl font-semibold mb-4 text-primary">Договори и разрешения по заеми и природни отношения</h2>
