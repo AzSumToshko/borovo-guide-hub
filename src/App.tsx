@@ -39,6 +39,7 @@ import PaymentCodesPage from "./pages/PaymentCodesPage";
 import ElectronicDeclarationPage from "./pages/ElectronicDeclarationPage";
 import DeclarationFormsPage from "./pages/DeclarationFormsPage";
 import MarketFeesPage from "./pages/MarketFeesPage";
+import InformationProtectionPage from "./pages/InformationProtectionPage";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -84,6 +85,7 @@ const App = () => (
             <Route path="/local-taxes/electronic-declaration" element={<ElectronicDeclarationPage />} />
             <Route path="/local-taxes/declaration-forms" element={<DeclarationFormsPage />} />
             <Route path="/local-taxes/market-fees" element={<MarketFeesPage />} />
+            <Route path="/information-protection" element={<InformationProtectionPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

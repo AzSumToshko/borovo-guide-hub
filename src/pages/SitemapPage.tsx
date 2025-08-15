@@ -19,11 +19,20 @@ const SitemapPage = () => {
       </Helmet>
       <Header />
       <main id="main">
-        <div className="bg-primary text-primary-foreground py-12">
-          <div className="container mx-auto px-4">
-            <h1 className="text-3xl font-bold">{t("footer.sitemap")}</h1>
-            <p className="opacity-90 mt-2">{desc}</p>
+        <div 
+          className="bg-gradient-to-br from-primary via-primary-light to-accent text-primary-foreground py-20 relative overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/src/assets/borovo-hero.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          <div className="container mx-auto px-4 relative z-10">
+            <h1 className="text-4xl font-bold mb-4">{t("footer.sitemap")}</h1>
+            <p className="text-xl opacity-90">{desc}</p>
           </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-accent/50"></div>
         </div>
         <div className="container mx-auto px-4 py-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div>
