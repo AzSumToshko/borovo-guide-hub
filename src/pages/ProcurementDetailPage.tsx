@@ -46,8 +46,16 @@ const ProcurementDetailPage = () => {
       </Helmet>
       <Header />
       <main id="main">
-        <div className="bg-primary text-primary-foreground py-12">
-          <div className="container mx-auto px-4">
+        <div 
+          className="bg-gradient-to-br from-primary via-primary-light to-accent text-primary-foreground py-20 relative overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/src/assets/borovo-hero.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          <div className="container mx-auto px-4 relative z-10">
             <Button 
               variant="ghost" 
               onClick={() => navigate('/buyer-profile')}
@@ -56,40 +64,69 @@ const ProcurementDetailPage = () => {
               <ArrowLeft className="w-4 h-4 mr-2" />
               Обратно към поръчки
             </Button>
-            <h1 className="text-3xl font-bold">Процедура {procedureData.number}</h1>
-            <p className="opacity-90 mt-2">{desc}</p>
+            <h1 className="text-4xl font-bold">Процедура {procedureData.number}</h1>
+            <p className="text-xl opacity-90 mt-2">{desc}</p>
           </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-accent/50"></div>
         </div>
         
         <div className="container mx-auto px-4 py-8">
           <div className="grid lg:grid-cols-4 gap-6">
             {/* Filters Sidebar - Same as main page */}
             <div className="lg:col-span-1">
-              <Card className="bg-[#8FB85B] text-white">
+              <Card className="bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-municipal">
                 <CardHeader>
-                  <CardTitle className="text-white text-center">ФИЛТРИРАЙ ПО:</CardTitle>
+                  <CardTitle className="text-primary-foreground text-center">ФИЛТРИРАЙ ПО:</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium mb-2">Тип на поръчката:</label>
-                    <select className="w-full p-2 rounded bg-white text-black">
+                    <select className="w-full p-2 rounded bg-background text-foreground">
                       <option value="">Избери тип</option>
+                      <option value="all">Всички</option>
+                      <option value="construction">Строителство</option>
+                      <option value="services">Услуги</option>
+                      <option value="supplies">Доставки</option>
                     </select>
                   </div>
 
                   <div className="space-y-2">
-                    <Button variant="secondary" className="w-full text-center bg-gray-200 text-black hover:bg-gray-300">
+                    <Button variant="secondary" className="w-full text-center">
                       СТАРИ И ДЕЙСТВАЩИ ПРОЦЕДУРИ
                     </Button>
-                    <Button variant="secondary" className="w-full text-center bg-gray-200 text-black hover:bg-gray-300">
+                    <Button variant="secondary" className="w-full text-center">
                       ПРЕДВАРИТЕЛНИ ОБЯВЛЕНИЯ
                     </Button>
-                    <Button variant="secondary" className="w-full text-center bg-gray-200 text-black hover:bg-gray-300">
+                    <Button variant="secondary" className="w-full text-center">
                       АКТУАЛИЗАЦИИ КЪМ ДОГОВОРИ
                     </Button>
-                    <Button variant="secondary" className="w-full text-center bg-gray-200 text-black hover:bg-gray-300">
+                    <Button variant="secondary" className="w-full text-center">
                       ПУБЛИКАЦИИ ОТ АОП
                     </Button>
+                  </div>
+
+                  <div className="bg-accent/20 backdrop-blur-sm p-3 rounded border border-primary-foreground/20">
+                    <p className="text-primary-foreground text-center font-medium mb-3">ТЪРСЕНЕ ПО:</p>
+                    <div className="space-y-3">
+                      <div>
+                        <label className="block text-sm text-primary-foreground mb-1">Заглавие:</label>
+                        <input className="w-full p-2 rounded bg-background text-foreground" />
+                      </div>
+                      <div className="text-center">
+                        <span className="text-primary-foreground">ИЛИ</span>
+                      </div>
+                      <div>
+                        <label className="block text-sm text-primary-foreground mb-1">Дата От:</label>
+                        <input type="date" className="w-full p-2 rounded bg-background text-foreground" />
+                      </div>
+                      <div>
+                        <label className="block text-sm text-primary-foreground mb-1">Дата До:</label>
+                        <input type="date" className="w-full p-2 rounded bg-background text-foreground" />
+                      </div>
+                      <Button className="w-full bg-primary-dark hover:bg-primary text-primary-foreground">
+                        Търси
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -97,9 +134,9 @@ const ProcurementDetailPage = () => {
 
             {/* Main Content */}
             <div className="lg:col-span-3">
-              <Card className="bg-[#8FB85B] text-white mb-4">
+              <Card className="bg-gradient-to-r from-primary to-accent text-primary-foreground mb-6 shadow-municipal">
                 <CardHeader>
-                  <CardTitle className="text-white text-center">ОБЩЕСТВЕНИ ПОРЪЧКИ</CardTitle>
+                  <CardTitle className="text-primary-foreground text-center text-xl">ОБЩЕСТВЕНИ ПОРЪЧКИ</CardTitle>
                 </CardHeader>
               </Card>
 
@@ -114,7 +151,7 @@ const ProcurementDetailPage = () => {
                         <p><span className="font-semibold">ДАТА:</span> {procedureData.date}</p>
                       </div>
                       <div>
-                        <p className="text-red-600 font-bold">№ {procedureData.number}</p>
+                        <p className="text-destructive font-bold">№ {procedureData.number}</p>
                         <p><span className="font-semibold">АОП НОМЕР:</span> {procedureData.aopNumber}</p>
                       </div>
                     </div>
@@ -122,16 +159,16 @@ const ProcurementDetailPage = () => {
                   
                   <div className="mb-4">
                     <h3 className="font-semibold mb-2">Описание:</h3>
-                    <p className="text-gray-700">{procedureData.description}</p>
+                    <p className="text-muted-foreground">{procedureData.description}</p>
                   </div>
 
                   <div className="flex gap-4 text-sm">
-                    <a href="#" className="text-blue-600 hover:underline">
+                    <a href="#" className="text-primary hover:text-primary-dark hover:underline">
                       ЛИНК КЪМ АОП ОБЯВЛЕНИЕ: HTTP://WWW.AOP.BG/NG/FORM.PHP?CLASS=F02_2014&ID=983610&MODE=VIEW
                     </a>
                   </div>
                   <div className="text-sm mt-2">
-                    <a href="#" className="text-blue-600 hover:underline">
+                    <a href="#" className="text-primary hover:text-primary-dark hover:underline">
                       ЛИНК КЪМ АОП РЕШЕНИЕ: HTTP://WWW.AOP.BG/CAS62.PHP?MODE=SHOW_DOC&DOC_ID=983602&NEWVER=2
                     </a>
                   </div>
@@ -148,7 +185,7 @@ const ProcurementDetailPage = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="mb-4">
-                    <p className="text-sm text-gray-600">061720201151506_Надзор-свлачище.rar</p>
+                    <p className="text-sm text-muted-foreground">061720201151506_Надзор-свлачище.rar</p>
                   </div>
                   
                   <Table>
@@ -162,7 +199,7 @@ const ProcurementDetailPage = () => {
                       {procedureDocuments.map((doc, index) => (
                         <TableRow key={index}>
                           <TableCell>
-                            <a href={doc.link} className="text-blue-600 hover:underline">
+                            <a href={doc.link} className="text-primary hover:text-primary-dark hover:underline">
                               {doc.name}
                             </a>
                           </TableCell>
@@ -176,7 +213,7 @@ const ProcurementDetailPage = () => {
                     <Button 
                       variant="ghost" 
                       onClick={() => navigate('/buyer-profile')}
-                      className="text-blue-600"
+                      className="text-primary hover:text-primary-dark"
                     >
                       ← Обратно към поръчки
                     </Button>
