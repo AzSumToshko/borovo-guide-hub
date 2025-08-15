@@ -123,7 +123,7 @@ const EventsCalendarSection = () => {
                     mode="single"
                     selected={selectedDate}
                     onSelect={handleDateSelect}
-                    className="rounded-md border-0 w-full pointer-events-auto scale-[0.85] sm:scale-100 origin-center mx-auto"
+                    className="rounded-md border-0 w-full pointer-events-auto scale-[0.85] sm:scale-95 origin-center mx-auto"
                     modifiers={{
                       hasEvents: (date) => hasEventsOnDate(date)
                     }}
