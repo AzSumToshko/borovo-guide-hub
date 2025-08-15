@@ -1,4 +1,6 @@
 import { Helmet } from "react-helmet-async";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import borovoCoatOfArms from "@/assets/borovo-coat-of-arms.png";
 import { Progress } from "@/components/ui/progress";
 
@@ -25,11 +27,13 @@ const SurveysPage = () => {
   ];
 
   return (
-    <>
+    <div className="min-h-screen bg-background">
       <Helmet>
         <title>Анкети - Община Борово</title>
         <meta name="description" content="Резултати от анкети на Община Борово" />
       </Helmet>
+
+      <Header />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-municipal-navy to-municipal-navy/90 text-white py-16 md:py-24">
@@ -91,7 +95,9 @@ const SurveysPage = () => {
           </div>
         </div>
       </section>
-    </>
+
+      <Footer />
+    </div>
   );
 };
 
