@@ -42,6 +42,7 @@ import MarketFeesPage from "./pages/MarketFeesPage";
 import InformationProtectionPage from "./pages/InformationProtectionPage";
 import AccessibilityDeclarationPage from "./pages/AccessibilityDeclarationPage";
 import AccessibilityPolicyPage from "./pages/AccessibilityPolicyPage";
+import SurveysPage from "./pages/SurveysPage";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -90,6 +91,7 @@ const App = () => (
             <Route path="/information-protection" element={<InformationProtectionPage />} />
             <Route path="/accessibility-declaration" element={<AccessibilityDeclarationPage />} />
             <Route path="/accessibility-policy" element={<AccessibilityPolicyPage />} />
+            <Route path="/surveys" element={<SurveysPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
