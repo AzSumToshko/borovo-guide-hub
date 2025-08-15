@@ -1,6 +1,8 @@
-import { Search, Phone, Bell } from "lucide-react";
+import { Search, Phone, Bell, Menu, X } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import borovoCoatOfArms from "@/assets/borovo-coat-of-arms.png";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { useI18n } from "@/i18n";
@@ -8,31 +10,32 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 
 const Header = () => {
   const { locale, setLocale, t } = useI18n();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   return (
     <header className="bg-background shadow-[var(--shadow-header)]">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-primary text-primary-foreground px-3 py-1 rounded">Прескочи към съдържанието</a>
 
       {/* Main header */}
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-3 lg:py-4">
         <div className="flex items-center justify-between">
           {/* Logo and title */}
-          <div className="flex items-center gap-4">
-            <a href="/" className="flex items-center gap-4">
+          <div className="flex items-center gap-2 lg:gap-4">
+            <a href="/" className="flex items-center gap-2 lg:gap-4">
               <img 
                 src={borovoCoatOfArms} 
                 alt="Герб на Община Борово" 
-                className="w-16 h-16 object-contain"
+                className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 object-contain"
                 loading="eager"
               />
               <div>
-                <h1 className="text-2xl font-bold text-primary">Община</h1>
-                <h2 className="text-2xl font-bold text-primary">БОРОВО</h2>
+                <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">Община</h1>
+                <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">БОРОВО</h2>
               </div>
             </a>
           </div>
 
-          {/* Contact info and search */}
-          <div className="flex items-center gap-8">
+          {/* Desktop Contact info and search */}
+          <div className="hidden lg:flex items-center gap-8">
             <div className="flex items-center gap-2 text-primary">
               <Phone className="w-5 h-5" />
               <div>
@@ -60,11 +63,58 @@ const Header = () => {
               </Button>
             </div>
           </div>
+
+          {/* Mobile actions */}
+          <div className="flex lg:hidden items-center gap-2">
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => setIsSearchOpen(!isSearchOpen)}
+              aria-label="Търсене"
+            >
+              <Search className="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+
+        {/* Mobile search bar */}
+        {isSearchOpen && (
+          <div className="lg:hidden mt-4 pt-4 border-t">
+            <div className="flex items-center gap-2" role="search">
+              <Input 
+                placeholder={t("search.placeholder")}
+                className="flex-1"
+                aria-label={t("search.placeholder")}
+              />
+              <Button size="icon" variant="outline" aria-label="Търсене">
+                <Search className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+        )}
+
+        {/* Mobile contact info */}
+        <div className="lg:hidden mt-4 pt-4 border-t flex flex-col sm:flex-row gap-4">
+          <div className="flex items-center gap-2 text-primary text-sm">
+            <Phone className="w-4 h-4" />
+            <div>
+              <span className="text-muted-foreground">Телефон: </span>
+              <span className="font-semibold">070010502</span>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-2 text-primary text-sm">
+            <Bell className="w-4 h-4" />
+            <div>
+              <span className="text-muted-foreground">Портал за </span>
+              <span className="font-semibold">СИГНАЛИ</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Navigation */}
-      <nav className="bg-primary text-primary-foreground relative overflow-visible" role="navigation" aria-label="Главна навигация" id="main-navigation">
+      {/* Desktop Navigation */}
+      <nav className="hidden lg:block bg-primary text-primary-foreground relative overflow-visible" role="navigation" aria-label="Главна навигация" id="main-navigation">
         <div className="container mx-auto px-4 relative overflow-visible">
           <div className="flex items-center overflow-visible">
             <NavigationMenu className="static w-full overflow-visible">
@@ -442,6 +492,80 @@ const Header = () => {
           </div>
         </div>
       </nav>
+
+      {/* Mobile Navigation */}
+      <div className="lg:hidden bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="w-full justify-between text-primary-foreground hover:bg-primary-light py-3"
+              >
+                <span>Навигация</span>
+                <Menu className="h-4 w-4" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-full sm:w-80 p-0 bg-background">
+              <SheetHeader className="p-4 border-b">
+                <SheetTitle className="text-left">Навигация</SheetTitle>
+              </SheetHeader>
+              <div className="overflow-y-auto h-full">
+                <div className="p-4 space-y-4">
+                  {/* Mobile menu items */}
+                  <div className="space-y-3">
+                    <div>
+                      <h3 className="font-semibold text-primary mb-2">За Общината</h3>
+                      <ul className="space-y-2 ml-4">
+                        <li><a href="/about" className="text-sm text-muted-foreground hover:text-primary">Представяне</a></li>
+                        <li><a href="/about/history" className="text-sm text-muted-foreground hover:text-primary">История на града</a></li>
+                        <li><a href="/about/geography" className="text-sm text-muted-foreground hover:text-primary">Географска характеристика</a></li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-semibold text-primary mb-2">Администрация</h3>
+                      <ul className="space-y-2 ml-4">
+                        <li><a href="/administration/deputy-mayors" className="text-sm text-muted-foreground hover:text-primary">Заместник кметове</a></li>
+                        <li><a href="/administration/secretary" className="text-sm text-muted-foreground hover:text-primary">Секретар</a></li>
+                        <li><a href="/administration/architect" className="text-sm text-muted-foreground hover:text-primary">Главен архитект</a></li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-semibold text-primary mb-2">Дейности и услуги</h3>
+                      <ul className="space-y-2 ml-4">
+                        <li><a href="/services/social" className="text-sm text-muted-foreground hover:text-primary">Социални услуги</a></li>
+                        <li><a href="/services/technical" className="text-sm text-muted-foreground hover:text-primary">Технически услуги</a></li>
+                        <li><a href="/services/taxes" className="text-sm text-muted-foreground hover:text-primary">Местни данъци и такси</a></li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-semibold text-primary mb-2">Актуално</h3>
+                      <ul className="space-y-2 ml-4">
+                        <li><a href="/news" className="text-sm text-muted-foreground hover:text-primary">Новини</a></li>
+                        <li><a href="/events" className="text-sm text-muted-foreground hover:text-primary">Събития</a></li>
+                        <li><a href="/announcements" className="text-sm text-muted-foreground hover:text-primary">Съобщения</a></li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-semibold text-primary mb-2">Общински съвет</h3>
+                      <ul className="space-y-2 ml-4">
+                        <li><a href="/council/chairman" className="text-sm text-muted-foreground hover:text-primary">Председател</a></li>
+                        <li><a href="/council/councilors" className="text-sm text-muted-foreground hover:text-primary">Общински съветници</a></li>
+                        <li><a href="/council/decisions" className="text-sm text-muted-foreground hover:text-primary">Решения</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
       {/* Breadcrumbs */}
       <div className="bg-muted/60" role="region" aria-label="Иерархична навигация">
         <Breadcrumbs />
