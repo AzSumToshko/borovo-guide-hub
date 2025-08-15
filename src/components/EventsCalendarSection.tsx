@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { CalendarDays, Clock, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const EventsCalendarSection = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
@@ -28,7 +29,8 @@ const EventsCalendarSection = () => {
       category: "съобщения",
       type: "Съобщение",
       description: "От 14.04.2025 г. се подновява се приемът на заявления по проект Подобряване качеството на атмосферата...",
-      location: "Община Асеновград"
+      location: "Община Борово",
+      link: "/announcements"
     },
     {
       id: 2,
@@ -38,7 +40,8 @@ const EventsCalendarSection = () => {
       category: "обяви",
       type: "Обява",
       description: "Списък на регистрираните към настоящия момент обекти по чл. 206 от Закона за горите на територията на...",
-      location: "Община Асеновград"
+      location: "Община Борово",
+      link: "/news/announcements"
     },
     {
       id: 3,
@@ -47,18 +50,20 @@ const EventsCalendarSection = () => {
       validUntil: "2025-12-31",
       category: "заповеди",
       type: "Заповед",
-      description: "ОБЯСНИТЕЛНА ЗАПИСКА към Годишния план за ползване на дървесина на община Асеновград за 2025 г.",
-      location: "Община Асеновград"
+      description: "ОБЯСНИТЕЛНА ЗАПИСКА към Годишния план за ползване на дървесина на община Борово за 2025 г.",
+      location: "Община Борово",
+      link: "/documents"
     },
     {
       id: 4,
-      title: "СЪОБЩЕНИЕ ЗА ПУБЛИЧНО ОБЯВЯВАНЕ",
+      title: "АНКЕТА ЗА ГРАДСКАТА СРЕДА",
       date: "2025-01-18",
       validUntil: "2025-02-28",
       category: "търгове",
-      type: "Търг",
-      description: "Съобщение за публично обявяване за откриване на процедура за издаване на разрешително за водоземане...",
-      location: "Община Асеновград"
+      type: "Анкета",
+      description: "Участвайте в анкетата за подобряване на градската среда и инфраструктурата в Борово...",
+      location: "Община Борово",
+      link: "/surveys"
     }
   ];
 
@@ -187,35 +192,37 @@ const EventsCalendarSection = () => {
                   {getFilteredEvents(category.id).filter(event => 
                     selectedDate ? getEventsForDate(selectedDate).includes(event) : true
                   ).map((event) => (
-                    <Card key={event.id} className="hover:shadow-md transition-shadow duration-200 border-l-4 border-l-primary">
-                      <CardHeader className="pb-3 p-4 sm:p-6">
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex-1">
-                            <Badge variant="outline" className="mb-2 text-xs">
-                              {event.type}
-                            </Badge>
-                            <CardTitle className="text-base sm:text-lg leading-tight text-foreground hover:text-primary transition-colors cursor-pointer">
-                              {event.title}
-                            </CardTitle>
+                    <Link key={event.id} to={event.link}>
+                      <Card className="hover:shadow-md transition-shadow duration-200 border-l-4 border-l-primary cursor-pointer group">
+                        <CardHeader className="pb-3 p-4 sm:p-6">
+                          <div className="flex items-start justify-between gap-4">
+                            <div className="flex-1">
+                              <Badge variant="outline" className="mb-2 text-xs">
+                                {event.type}
+                              </Badge>
+                              <CardTitle className="text-base sm:text-lg leading-tight text-foreground group-hover:text-primary transition-colors">
+                                {event.title}
+                              </CardTitle>
+                            </div>
                           </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="pt-0 p-4 sm:p-6">
-                        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                          {event.description}
-                        </p>
-                        <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-4 text-xs text-muted-foreground">
-                          <div className="flex items-center gap-1">
-                            <CalendarDays className="h-3 w-3 flex-shrink-0" />
-                            <span>Валидно до: {new Date(event.validUntil).toLocaleDateString('bg-BG')}</span>
+                        </CardHeader>
+                        <CardContent className="pt-0 p-4 sm:p-6">
+                          <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                            {event.description}
+                          </p>
+                          <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-4 text-xs text-muted-foreground">
+                            <div className="flex items-center gap-1">
+                              <CalendarDays className="h-3 w-3 flex-shrink-0" />
+                              <span>Валидно до: {new Date(event.validUntil).toLocaleDateString('bg-BG')}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <MapPin className="h-3 w-3 flex-shrink-0" />
+                              <span>{event.location}</span>
+                            </div>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <MapPin className="h-3 w-3 flex-shrink-0" />
-                            <span>{event.location}</span>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
+                        </CardContent>
+                      </Card>
+                    </Link>
                   ))}
                   
                   {getFilteredEvents(category.id).filter(event => 
