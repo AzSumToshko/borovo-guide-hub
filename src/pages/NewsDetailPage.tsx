@@ -77,7 +77,7 @@ const NewsDetailPage = () => {
       >
         <div className="container mx-auto px-4 relative z-10">
           <Link to="/news">
-            <Button variant="outline" className="mb-4 text-primary-foreground border-primary-foreground hover:bg-primary-foreground hover:text-primary">
+            <Button variant="outline" className="mb-4 text-white border-white/20 hover:bg-white/20 hover:text-white bg-white/10 backdrop-blur-sm">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Назад към новините
             </Button>
