@@ -1,9 +1,8 @@
-import { Search, Phone, Bell, Menu, X, ChevronDown } from "lucide-react";
+import { Search, Phone, Bell, Menu, X, ShoppingCart, Megaphone, FolderOpen, Smartphone, Receipt, FileText } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import borovoCoatOfArms from "@/assets/borovo-coat-of-arms.png";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { useI18n } from "@/i18n";
@@ -90,168 +89,66 @@ const Header = () => {
                   </SheetHeader>
                   
                   <div className="flex-1 overflow-y-auto">
-                    {/* Main Navigation Accordions */}
-                    <div className="p-4">
+                    {/* Main Navigation */}
+                    <div className="p-4 border-b">
                       <h3 className="font-semibold text-primary mb-3">Основни секции</h3>
-                      <Accordion type="single" collapsible className="w-full space-y-1">
-                        <AccordionItem value="about" className="border rounded-lg">
-                          <AccordionTrigger className="px-3 py-2 hover:no-underline hover:bg-muted/50">
-                            За Общината
-                          </AccordionTrigger>
-                          <AccordionContent className="px-3 pb-2">
-                            <div className="space-y-1">
-                              <a href="/about" className="block py-2 px-2 text-sm hover:bg-muted rounded">Представяне</a>
-                              <a href="/about/history" className="block py-2 px-2 text-sm hover:bg-muted rounded">История на града</a>
-                              <a href="/about/geography" className="block py-2 px-2 text-sm hover:bg-muted rounded">Географска характеристика</a>
-                              <a href="/about/demographics" className="block py-2 px-2 text-sm hover:bg-muted rounded">Демографска характеристика</a>
-                              <a href="/about/villages" className="block py-2 px-2 text-sm hover:bg-muted rounded">Селища в общината</a>
-                              <a href="/about/infrastructure" className="block py-2 px-2 text-sm hover:bg-muted rounded">Техническа инфраструктура</a>
-                              <a href="/about/vision" className="block py-2 px-2 text-sm hover:bg-muted rounded">Визия на община Борово</a>
-                              <a href="/about/citizens" className="block py-2 px-2 text-sm hover:bg-muted rounded">Почетни граждани</a>
-                              <a href="/culture/calendar" className="block py-2 px-2 text-sm hover:bg-muted rounded">Културен календар</a>
-                              <a href="/culture/events" className="block py-2 px-2 text-sm hover:bg-muted rounded">Местни празници</a>
-                              <a href="/culture/library" className="block py-2 px-2 text-sm hover:bg-muted rounded">Библиотеки</a>
-                              <a href="/culture/reading-room" className="block py-2 px-2 text-sm hover:bg-muted rounded">Читалища</a>
-                              <a href="/culture/museums" className="block py-2 px-2 text-sm hover:bg-muted rounded">Музей</a>
-                              <a href="/culture/monasteries" className="block py-2 px-2 text-sm hover:bg-muted rounded">Манастири</a>
-                              <a href="/tourism/info" className="block py-2 px-2 text-sm hover:bg-muted rounded">Туристически информационен център</a>
-                              <a href="/tourism/guide" className="block py-2 px-2 text-sm hover:bg-muted rounded">Електронен гид</a>
-                              <a href="/awards/letters" className="block py-2 px-2 text-sm hover:bg-muted rounded">Благодарствени писма и позадравителни адреси</a>
-                              <a href="/awards/citizens" className="block py-2 px-2 text-sm hover:bg-muted rounded">Побратимени градове</a>
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
+                      <div className="space-y-1">
+                        <a href="/about" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          За Общината
+                        </a>
+                        <a href="/administration" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Администрация
+                        </a>
+                        <a href="/council" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Общински съвет
+                        </a>
+                        <a href="/documents" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Документи и решения
+                        </a>
+                        <a href="/news" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Новини
+                        </a>
+                        <a href="/events" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Събития
+                        </a>
+                        <a href="/announcements" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Обяви
+                        </a>
+                        <a href="/contacts" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Контакти
+                        </a>
+                      </div>
+                    </div>
 
-                        <AccordionItem value="administration" className="border rounded-lg">
-                          <AccordionTrigger className="px-3 py-2 hover:no-underline hover:bg-muted/50">
-                            Администрация
-                          </AccordionTrigger>
-                          <AccordionContent className="px-3 pb-2">
-                            <div className="space-y-1">
-                              <a href="/administration" className="block py-2 px-2 text-sm hover:bg-muted rounded">Кмет</a>
-                              <a href="/administration/deputy-mayors" className="block py-2 px-2 text-sm hover:bg-muted rounded">Заместник-кметове</a>
-                              <a href="/administration/structure" className="block py-2 px-2 text-sm hover:bg-muted rounded">Организационна структура</a>
-                              <a href="/administration/employees" className="block py-2 px-2 text-sm hover:bg-muted rounded">Служители</a>
-                              <a href="/administration/jobs" className="block py-2 px-2 text-sm hover:bg-muted rounded">Работни места</a>
-                              <a href="/administration/register" className="block py-2 px-2 text-sm hover:bg-muted rounded">Публичен регистър</a>
-                              <a href="/administration/budget" className="block py-2 px-2 text-sm hover:bg-muted rounded">Общински бюджет</a>
-                              <a href="/administration/reports" className="block py-2 px-2 text-sm hover:bg-muted rounded">Отчети</a>
-                              <a href="/administration/tenders" className="block py-2 px-2 text-sm hover:bg-muted rounded">Обществени поръчки</a>
-                              <a href="/administration/declarations" className="block py-2 px-2 text-sm hover:bg-muted rounded">Декларации за имоти</a>
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
-
-                        <AccordionItem value="council" className="border rounded-lg">
-                          <AccordionTrigger className="px-3 py-2 hover:no-underline hover:bg-muted/50">
-                            Общински съвет
-                          </AccordionTrigger>
-                          <AccordionContent className="px-3 pb-2">
-                            <div className="space-y-1">
-                              <a href="/council" className="block py-2 px-2 text-sm hover:bg-muted rounded">Председател</a>
-                              <a href="/council/members" className="block py-2 px-2 text-sm hover:bg-muted rounded">Общински съветници</a>
-                              <a href="/council/commissions" className="block py-2 px-2 text-sm hover:bg-muted rounded">Комисии</a>
-                              <a href="/council/sessions" className="block py-2 px-2 text-sm hover:bg-muted rounded">Сесии</a>
-                              <a href="/council/decisions" className="block py-2 px-2 text-sm hover:bg-muted rounded">Решения</a>
-                              <a href="/council/statutes" className="block py-2 px-2 text-sm hover:bg-muted rounded">Правилници и наредби</a>
-                              <a href="/council/calendar" className="block py-2 px-2 text-sm hover:bg-muted rounded">Календар на заседанията</a>
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
-
-                        <AccordionItem value="documents" className="border rounded-lg">
-                          <AccordionTrigger className="px-3 py-2 hover:no-underline hover:bg-muted/50">
-                            Документи и решения
-                          </AccordionTrigger>
-                          <AccordionContent className="px-3 pb-2">
-                            <div className="space-y-1">
-                              <a href="/documents" className="block py-2 px-2 text-sm hover:bg-muted rounded">Решения на ОбС</a>
-                              <a href="/documents/mayor-orders" className="block py-2 px-2 text-sm hover:bg-muted rounded">Заповеди на кмета</a>
-                              <a href="/documents/statutes" className="block py-2 px-2 text-sm hover:bg-muted rounded">Наредби</a>
-                              <a href="/documents/plans" className="block py-2 px-2 text-sm hover:bg-muted rounded">Планове и програми</a>
-                              <a href="/documents/strategies" className="block py-2 px-2 text-sm hover:bg-muted rounded">Стратегии</a>
-                              <a href="/documents/budget" className="block py-2 px-2 text-sm hover:bg-muted rounded">Бюджетни документи</a>
-                              <a href="/documents/reports" className="block py-2 px-2 text-sm hover:bg-muted rounded">Отчети</a>
-                              <a href="/documents/forms" className="block py-2 px-2 text-sm hover:bg-muted rounded">Формуляри</a>
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
-
-                        <AccordionItem value="services" className="border rounded-lg">
-                          <AccordionTrigger className="px-3 py-2 hover:no-underline hover:bg-muted/50">
-                            Услуги
-                          </AccordionTrigger>
-                          <AccordionContent className="px-3 pb-2">
-                            <div className="space-y-1">
-                              <a href="/services" className="block py-2 px-2 text-sm hover:bg-muted rounded">Електронни услуги</a>
-                              <a href="/services/social" className="block py-2 px-2 text-sm hover:bg-muted rounded">Социални услуги</a>
-                              <a href="/services/technical" className="block py-2 px-2 text-sm hover:bg-muted rounded">Технически услуги</a>
-                              <a href="/services/local-taxes" className="block py-2 px-2 text-sm hover:bg-muted rounded">Местни данъци и такси</a>
-                              <a href="/services/certificates" className="block py-2 px-2 text-sm hover:bg-muted rounded">Справки и удостоверения</a>
-                              <a href="/services/permits" className="block py-2 px-2 text-sm hover:bg-muted rounded">Разрешителни</a>
-                              <a href="/services/applications" className="block py-2 px-2 text-sm hover:bg-muted rounded">Заявления</a>
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
-
-                        <AccordionItem value="news" className="border rounded-lg">
-                          <AccordionTrigger className="px-3 py-2 hover:no-underline hover:bg-muted/50">
-                            Новини
-                          </AccordionTrigger>
-                          <AccordionContent className="px-3 pb-2">
-                            <div className="space-y-1">
-                              <a href="/news" className="block py-2 px-2 text-sm hover:bg-muted rounded">Всички новини</a>
-                              <a href="/news/municipal" className="block py-2 px-2 text-sm hover:bg-muted rounded">Общински новини</a>
-                              <a href="/news/projects" className="block py-2 px-2 text-sm hover:bg-muted rounded">Проекти</a>
-                              <a href="/news/tenders" className="block py-2 px-2 text-sm hover:bg-muted rounded">Обяви за търгове</a>
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
-
-                        <AccordionItem value="events" className="border rounded-lg">
-                          <AccordionTrigger className="px-3 py-2 hover:no-underline hover:bg-muted/50">
-                            Събития
-                          </AccordionTrigger>
-                          <AccordionContent className="px-3 pb-2">
-                            <div className="space-y-1">
-                              <a href="/events" className="block py-2 px-2 text-sm hover:bg-muted rounded">Предстоящи събития</a>
-                              <a href="/events/calendar" className="block py-2 px-2 text-sm hover:bg-muted rounded">Календар на събитията</a>
-                              <a href="/events/culture" className="block py-2 px-2 text-sm hover:bg-muted rounded">Културни събития</a>
-                              <a href="/events/sport" className="block py-2 px-2 text-sm hover:bg-muted rounded">Спортни събития</a>
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
-
-                        <AccordionItem value="announcements" className="border rounded-lg">
-                          <AccordionTrigger className="px-3 py-2 hover:no-underline hover:bg-muted/50">
-                            Обяви
-                          </AccordionTrigger>
-                          <AccordionContent className="px-3 pb-2">
-                            <div className="space-y-1">
-                              <a href="/announcements" className="block py-2 px-2 text-sm hover:bg-muted rounded">Всички обяви</a>
-                              <a href="/announcements/tenders" className="block py-2 px-2 text-sm hover:bg-muted rounded">Търгове и конкурси</a>
-                              <a href="/announcements/jobs" className="block py-2 px-2 text-sm hover:bg-muted rounded">Работни места</a>
-                              <a href="/announcements/public" className="block py-2 px-2 text-sm hover:bg-muted rounded">Публични консултации</a>
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
-
-                        <AccordionItem value="contacts" className="border rounded-lg">
-                          <AccordionTrigger className="px-3 py-2 hover:no-underline hover:bg-muted/50">
-                            Контакти
-                          </AccordionTrigger>
-                          <AccordionContent className="px-3 pb-2">
-                            <div className="space-y-1">
-                              <a href="/contacts" className="block py-2 px-2 text-sm hover:bg-muted rounded">Общи контакти</a>
-                              <a href="/contacts/departments" className="block py-2 px-2 text-sm hover:bg-muted rounded">Отдели и служби</a>
-                              <a href="/contacts/office-hours" className="block py-2 px-2 text-sm hover:bg-muted rounded">Работно време</a>
-                              <a href="/contacts/access" className="block py-2 px-2 text-sm hover:bg-muted rounded">Достъп до информация</a>
-                              <a href="/contacts/accessibility" className="block py-2 px-2 text-sm hover:bg-muted rounded">Декларация за достъпност</a>
-                              <a href="/sitemap" className="block py-2 px-2 text-sm hover:bg-muted rounded">Карта на сайта</a>
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
-                      </Accordion>
+                    {/* Quick Services */}
+                    <div className="p-4">
+                      <h3 className="font-semibold text-primary mb-3">Бързи услуги</h3>
+                      <div className="space-y-1">
+                        <a href="/buyer-profile" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors">
+                          <ShoppingCart className="w-4 h-4 text-primary" />
+                          Профил на купувач
+                        </a>
+                        <a href="/news/tenders" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors">
+                          <Megaphone className="w-4 h-4 text-primary" />
+                          Обяви търгове и конкурси
+                        </a>
+                        <a href="/projects" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors">
+                          <FolderOpen className="w-4 h-4 text-primary" />
+                          Проекти
+                        </a>
+                        <a href="/services" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors">
+                          <Smartphone className="w-4 h-4 text-primary" />
+                          Електронни услуги
+                        </a>
+                        <a href="/services/local-taxes" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors">
+                          <Receipt className="w-4 h-4 text-primary" />
+                          Местни данъци и такси
+                        </a>
+                        <a href="/registers" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors">
+                          <FileText className="w-4 h-4 text-primary" />
+                          Публични регистри
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
