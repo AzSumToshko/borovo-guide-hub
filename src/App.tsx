@@ -33,6 +33,7 @@ import ProjectAnnouncementsPage from "./pages/ProjectAnnouncementsPage";
 import ProjectsInProgressPage from "./pages/ProjectsInProgressPage";
 import ProjectsCompletedPage from "./pages/ProjectsCompletedPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
+import ElectronicServicesPage from "./pages/ElectronicServicesPage";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -71,6 +72,7 @@ const App = () => (
             <Route path="/projects/in-progress" element={<ProjectsInProgressPage />} />
             <Route path="/projects/completed" element={<ProjectsCompletedPage />} />
             <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
+            <Route path="/electronic-services" element={<ElectronicServicesPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
