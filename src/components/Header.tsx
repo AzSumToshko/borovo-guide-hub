@@ -428,7 +428,10 @@ const Header = () => {
             <NavigationMenu className="static w-full overflow-visible" value={openDropdown} onValueChange={setOpenDropdown}>
               <NavigationMenuList className="flex items-center space-x-0 overflow-visible">
                 <NavigationMenuItem className="relative overflow-visible" value="about">
-                  <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
+                  <NavigationMenuTrigger 
+                    className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm" 
+                    onSelect={(e) => e.preventDefault()}
+                  >
                     За Общината
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -510,7 +513,7 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem className="relative" value="administration">
-                  <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
+                  <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm" onSelect={(e) => e.preventDefault()}>
                     Администрация
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -571,7 +574,7 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem className="relative" value="services">
-                  <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
+                  <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm" onSelect={(e) => e.preventDefault()}>
                     Дейности и услуги
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -649,46 +652,46 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem className="relative" value="news">
-                  <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
+                  <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm" onSelect={(e) => e.preventDefault()}>
                     Актуално
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: `${navPosition}px`}}>
                       <div className="container mx-auto px-8 py-8">
                         <div className="grid grid-cols-12 gap-8">
-                          {/* News cards with icons */}
-                          <div className="col-span-4 space-y-4">
-                            <div className="bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors cursor-pointer">
-                              <div className="flex items-center space-x-3">
-                                <div className="text-2xl">📰</div>
-                                <div className="font-semibold text-sm">НОВИНИ</div>
-                              </div>
-                            </div>
-                            <div className="bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors cursor-pointer">
-                              <div className="flex items-center space-x-3">
-                                <div className="text-2xl">📅</div>
-                                <div className="font-semibold text-sm">СЪБИТИЯ</div>
-                              </div>
-                            </div>
-                            <div className="bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors cursor-pointer">
-                              <div className="flex items-center space-x-3">
-                                <div className="text-2xl">📢</div>
-                                <div className="font-semibold text-sm">СЪОБЩЕНИЯ</div>
-                              </div>
-                            </div>
-                            <div className="bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors cursor-pointer">
-                              <div className="flex items-center space-x-3">
-                                <div className="text-2xl">🏛️</div>
-                                <div className="font-semibold text-sm">ОБЯВИ, ТЪРГОВЕ И КОНКУРСИ</div>
-                              </div>
-                            </div>
-                            <div className="bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors cursor-pointer">
-                              <div className="flex items-center space-x-3">
-                                <div className="text-2xl">🗳️</div>
-                                <div className="font-semibold text-sm">ИЗБОРИ</div>
-                              </div>
-                            </div>
-                          </div>
+                           {/* News cards with professional icons */}
+                           <div className="col-span-4 space-y-4">
+                             <a href="/news" className="block bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors">
+                               <div className="flex items-center space-x-3">
+                                 <FileText className="w-6 h-6" />
+                                 <div className="font-semibold text-sm">НОВИНИ</div>
+                               </div>
+                             </a>
+                             <a href="/events" className="block bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors">
+                               <div className="flex items-center space-x-3">
+                                 <Bell className="w-6 h-6" />
+                                 <div className="font-semibold text-sm">СЪБИТИЯ</div>
+                               </div>
+                             </a>
+                             <a href="/announcements" className="block bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors">
+                               <div className="flex items-center space-x-3">
+                                 <Megaphone className="w-6 h-6" />
+                                 <div className="font-semibold text-sm">СЪОБЩЕНИЯ</div>
+                               </div>
+                             </a>
+                             <a href="/tenders" className="block bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors">
+                               <div className="flex items-center space-x-3">
+                                 <FolderOpen className="w-6 h-6" />
+                                 <div className="font-semibold text-sm">ОБЯВИ, ТЪРГОВЕ И КОНКУРСИ</div>
+                               </div>
+                             </a>
+                             <a href="/elections" className="block bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors">
+                               <div className="flex items-center space-x-3">
+                                 <Receipt className="w-6 h-6" />
+                                 <div className="font-semibold text-sm">ИЗБОРИ</div>
+                               </div>
+                             </a>
+                           </div>
                           
                           {/* Calendar and useful links */}
                           <div className="col-span-8 grid grid-cols-2 gap-8">
@@ -722,7 +725,7 @@ const Header = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem className="relative" value="council">
-                  <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
+                  <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm" onSelect={(e) => e.preventDefault()}>
                     Общински съвет
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
