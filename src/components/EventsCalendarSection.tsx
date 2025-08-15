@@ -107,7 +107,7 @@ const EventsCalendarSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Calendar - Mobile First */}
           <div className="order-1 lg:order-2">
             <Card className="lg:sticky lg:top-4">
@@ -118,28 +118,26 @@ const EventsCalendarSection = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-3 sm:p-6">
-                <div className="overflow-x-auto">
-                  <Calendar
-                    mode="single"
-                    selected={selectedDate}
-                    onSelect={handleDateSelect}
-                    className="rounded-md border-0 w-full min-w-[280px] pointer-events-auto mx-auto"
-                    modifiers={{
-                      hasEvents: (date) => hasEventsOnDate(date)
-                    }}
-                    modifiersClassNames={{
-                      hasEvents: "relative after:absolute after:bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full after:animate-pulse"
-                    }}
-                    modifiersStyles={{
-                      hasEvents: {
-                        backgroundColor: 'hsl(var(--primary) / 0.1)',
-                        color: 'hsl(var(--primary))',
-                        fontWeight: 'bold',
-                        border: '1px solid hsl(var(--primary) / 0.3)'
-                      }
-                    }}
-                  />
-                </div>
+                <Calendar
+                  mode="single"
+                  selected={selectedDate}
+                  onSelect={handleDateSelect}
+                  className="rounded-md border-0 w-full pointer-events-auto"
+                  modifiers={{
+                    hasEvents: (date) => hasEventsOnDate(date)
+                  }}
+                  modifiersClassNames={{
+                    hasEvents: "relative after:absolute after:bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full after:animate-pulse"
+                  }}
+                  modifiersStyles={{
+                    hasEvents: {
+                      backgroundColor: 'hsl(var(--primary) / 0.1)',
+                      color: 'hsl(var(--primary))',
+                      fontWeight: 'bold',
+                      border: '1px solid hsl(var(--primary) / 0.3)'
+                    }
+                  }}
+                />
                 <div className={`mt-4 p-3 bg-muted/50 rounded-lg transition-all duration-300 ${isDateChanging ? 'bg-primary/10 ring-2 ring-primary/20' : ''}`}>
                   <h4 className="font-medium text-sm mb-2 flex items-center gap-2">
                     <Clock className={`h-4 w-4 transition-transform duration-300 ${isDateChanging ? 'rotate-180' : ''}`} />
@@ -166,23 +164,21 @@ const EventsCalendarSection = () => {
           {/* Events List - Below Calendar on Mobile */}
           <div className="lg:col-span-2 order-2 lg:order-1">
             <Tabs defaultValue="all" className="w-full">
-              {/* Mobile-optimized tabs with scrolling */}
-              <div className="overflow-x-auto mb-6">
-                <TabsList className="grid grid-cols-4 w-full min-w-[600px] sm:min-w-0 gap-1">
-                  {categories.map((category) => (
-                    <TabsTrigger 
-                      key={category.id} 
-                      value={category.id}
-                      className="text-xs sm:text-sm relative flex flex-col sm:flex-row items-center gap-1 px-2 py-2 sm:px-3 sm:py-2 whitespace-nowrap"
-                    >
-                      <span className="truncate">{category.label}</span>
-                      <Badge variant="secondary" className="text-xs px-1 py-0 min-w-[20px] h-5">
-                        {category.count}
-                      </Badge>
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-              </div>
+              {/* Mobile-optimized tabs - stacked on mobile */}
+              <TabsList className="grid grid-cols-2 sm:grid-cols-4 w-full mb-6 h-auto gap-1">
+                {categories.map((category) => (
+                  <TabsTrigger 
+                    key={category.id} 
+                    value={category.id}
+                    className="text-xs sm:text-sm relative flex flex-col items-center gap-1 px-2 py-2 h-auto min-h-[60px] sm:min-h-[40px]"
+                  >
+                    <span className="text-center leading-tight">{category.label}</span>
+                    <Badge variant="secondary" className="text-xs px-1.5 py-0.5">
+                      {category.count}
+                    </Badge>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
 
               {categories.map((category) => (
                 <TabsContent key={category.id} value={category.id} className="space-y-4">
