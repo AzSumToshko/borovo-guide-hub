@@ -34,6 +34,10 @@ import ProjectsInProgressPage from "./pages/ProjectsInProgressPage";
 import ProjectsCompletedPage from "./pages/ProjectsCompletedPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import ElectronicServicesPage from "./pages/ElectronicServicesPage";
+import PaymentCodesPage from "./pages/PaymentCodesPage";
+import ElectronicDeclarationPage from "./pages/ElectronicDeclarationPage";
+import DeclarationFormsPage from "./pages/DeclarationFormsPage";
+import MarketFeesPage from "./pages/MarketFeesPage";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -73,6 +77,11 @@ const App = () => (
             <Route path="/projects/completed" element={<ProjectsCompletedPage />} />
             <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
             <Route path="/electronic-services" element={<ElectronicServicesPage />} />
+            <Route path="/local-taxes" element={<LocalTaxesPage />} />
+            <Route path="/local-taxes/payment-codes" element={<PaymentCodesPage />} />
+            <Route path="/local-taxes/electronic-declaration" element={<ElectronicDeclarationPage />} />
+            <Route path="/local-taxes/declaration-forms" element={<DeclarationFormsPage />} />
+            <Route path="/local-taxes/market-fees" element={<MarketFeesPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

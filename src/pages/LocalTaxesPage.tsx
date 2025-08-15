@@ -1,66 +1,99 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileText, Info } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Calculator, FileText, Download, CreditCard, Receipt } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const LocalTaxesPage = () => {
-  const tariffs = [
-    { name: "Данък сгради", value: "1.2‰ от данъчната оценка" },
-    { name: "Такса битови отпадъци", value: "Според тарифата на общината" },
-    { name: "Данък МПС", value: "Според мощност и екостандарт" },
-  ];
-
-  const docs = [
-    { title: "Декларация по чл.14 ЗМДТ", type: "PDF" },
-    { title: "Заявление за издаване на удостоверение за данъчни задължения", type: "DOCX" },
-    { title: "Образец за плащане по банков път", type: "PDF" },
+  const services = [
+    {
+      title: "Сметка и кодове за внасяне на такси, наеми и др.",
+      description: "Генериране на сметки и кодове за плащане",
+      icon: CreditCard,
+      link: "/local-taxes/payment-codes"
+    },
+    {
+      title: "Подаване на данъчна декларация от ЗМДТ по електронен път",
+      description: "Електронно подаване на данъчни декларации",
+      icon: FileText,
+      link: "/local-taxes/electronic-declaration"
+    },
+    {
+      title: "Сметка и кодове за внасяне на наеми за пазарни и накси битови отпадъци",
+      description: "Сметки за пазарни наеми и такса битови отпадъци",
+      icon: Receipt,
+      link: "/local-taxes/market-fees"
+    },
+    {
+      title: "Бланки на декларации по ЗМДТ",
+      description: "Свалени бланки за данъчни декларации",
+      icon: Download,
+      link: "/local-taxes/declaration-forms"
+    },
+    {
+      title: "Калкулатор за изчисляване на данък за леки и товарни автомобили до 3,5 т.",
+      description: "Калкулатор за данък върху превозните средства",
+      icon: Calculator,
+      external: true,
+      link: "https://cartax.uslugi.io/#Русе/БОРОВО"
+    }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      <div className="bg-primary text-primary-foreground py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-center">МЕСТНИ ДАНЪЦИ И ТАКСИ</h1>
-          <p className="text-xl text-center mt-4 opacity-90">Информация, размери и документи</p>
+      <div 
+        className="bg-gradient-to-br from-primary via-primary-light to-accent text-primary-foreground py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/src/assets/borovo-hero.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="container mx-auto px-4 relative z-10">
+          <h1 className="text-4xl font-bold mb-4">МЕСТНИ ДАНЪЦИ И ТАКСИ</h1>
+          <p className="text-xl opacity-90">Информация, размери и документи</p>
         </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-accent/50"></div>
       </div>
 
-      <div className="container mx-auto px-4 py-12 space-y-8">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-primary">Размери на данъци и такси</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            {tariffs.map((t, i) => (
-              <div key={i} className="flex justify-between border-b py-3">
-                <div className="font-medium">{t.name}</div>
-                <div className="text-muted-foreground">{t.value}</div>
-              </div>
-            ))}
-            <div className="flex items-start gap-2 text-sm text-muted-foreground mt-4">
-              <Info className="w-4 h-4 mt-0.5" />
-              Плащания могат да се извършват на каса в общината или по банков път.
-            </div>
-          </CardContent>
-        </Card>
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            const content = (
+              <Card key={index} className="h-full border-primary/20 hover:shadow-lg transition-shadow cursor-pointer">
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="p-4 bg-primary/10 rounded-full">
+                      <IconComponent className="w-8 h-8 text-primary" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-lg text-primary">{service.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-muted-foreground">{service.description}</p>
+                  <Button className="mt-4 w-full" variant={service.external ? "outline" : "default"}>
+                    {service.external ? "Отвори калкулатор" : "Вижте повече"}
+                  </Button>
+                </CardContent>
+              </Card>
+            );
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-primary">
-              <FileText className="w-5 h-5" /> Необходими документи
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            {docs.map((d, i) => (
-              <div key={i} className="flex items-center justify-between p-3 border rounded-md">
-                <div>{d.title}</div>
-                <div className="text-xs bg-secondary px-2 py-1 rounded">{d.type}</div>
-              </div>
-            ))}
-          </CardContent>
-        </Card>
+            return service.external ? (
+              <a key={index} href={service.link} target="_blank" rel="noopener noreferrer">
+                {content}
+              </a>
+            ) : (
+              <Link key={index} to={service.link}>
+                {content}
+              </Link>
+            );
+          })}
+        </div>
       </div>
 
       <Footer />
