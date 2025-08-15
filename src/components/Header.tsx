@@ -64,18 +64,18 @@ const Header = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-primary text-primary-foreground relative" role="navigation" aria-label="Главна навигация">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center">
-            <NavigationMenu className="relative w-full">
-              <NavigationMenuList className="flex items-center space-x-0">
-                <NavigationMenuItem className="relative">
+      <nav className="bg-primary text-primary-foreground relative overflow-visible" role="navigation" aria-label="Главна навигация" id="main-navigation">
+        <div className="container mx-auto px-4 relative overflow-visible">
+          <div className="flex items-center overflow-visible">
+            <NavigationMenu className="static w-full overflow-visible">
+              <NavigationMenuList className="flex items-center space-x-0 overflow-visible">
+                <NavigationMenuItem className="relative overflow-visible">
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     За Общината
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="absolute left-0 right-0 top-full w-screen bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: '0', right: '0', marginLeft: '-50vw', marginRight: '-50vw'}}>
-                      <div className="max-w-none px-8 py-8">
+                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: 'var(--header-height)'}}>
+                      <div className="container mx-auto px-8 py-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* Left section with cards */}
                           <div className="col-span-4 grid grid-cols-2 gap-4">
@@ -156,8 +156,8 @@ const Header = () => {
                     Администрация
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="absolute left-0 right-0 top-full w-screen bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: '0', right: '0', marginLeft: '-50vw', marginRight: '-50vw'}}>
-                      <div className="max-w-none px-8 py-8">
+                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: 'var(--header-height)'}}>
+                      <div className="container mx-auto px-8 py-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* Mayor section with image */}
                           <div className="col-span-4">
@@ -217,8 +217,8 @@ const Header = () => {
                     Дейности и услуги
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="absolute left-0 right-0 top-full w-screen bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: '0', right: '0', marginLeft: '-50vw', marginRight: '-50vw'}}>
-                      <div className="max-w-none px-8 py-8">
+                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: 'var(--header-height)'}}>
+                      <div className="container mx-auto px-8 py-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* Service category cards */}
                           <div className="col-span-5 grid grid-cols-3 gap-3">
@@ -295,8 +295,8 @@ const Header = () => {
                     Актуално
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="absolute left-0 right-0 top-full w-screen bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: '0', right: '0', marginLeft: '-50vw', marginRight: '-50vw'}}>
-                      <div className="max-w-none px-8 py-8">
+                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: 'var(--header-height)'}}>
+                      <div className="container mx-auto px-8 py-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* News cards with icons */}
                           <div className="col-span-4 space-y-4">
@@ -368,8 +368,8 @@ const Header = () => {
                     Общински съвет
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="absolute left-0 right-0 top-full w-screen bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: '0', right: '0', marginLeft: '-50vw', marginRight: '-50vw'}}>
-                      <div className="max-w-none px-8 py-8">
+                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: 'var(--header-height)'}}>
+                      <div className="container mx-auto px-8 py-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* Council cards with images */}
                           <div className="col-span-4 space-y-4">

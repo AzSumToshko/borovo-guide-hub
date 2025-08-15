@@ -7,6 +7,16 @@ import { CalendarDays, Clock, MapPin } from "lucide-react";
 
 const EventsCalendarSection = () => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
+  const [isDateChanging, setIsDateChanging] = useState(false);
+
+  // Handle date selection with animation feedback
+  const handleDateSelect = (date: Date | undefined) => {
+    if (date && date !== selectedDate) {
+      setIsDateChanging(true);
+      setTimeout(() => setIsDateChanging(false), 300);
+    }
+    setSelectedDate(date);
+  };
 
   // Mock events data
   const events = [
@@ -187,30 +197,41 @@ const EventsCalendarSection = () => {
                 <Calendar
                   mode="single"
                   selected={selectedDate}
-                  onSelect={setSelectedDate}
+                  onSelect={handleDateSelect}
                   className="rounded-md border-0 w-full"
                   modifiers={{
                     hasEvents: (date) => hasEventsOnDate(date)
                   }}
+                  modifiersClassNames={{
+                    hasEvents: "relative after:absolute after:bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full after:animate-pulse"
+                  }}
                   modifiersStyles={{
                     hasEvents: {
-                      backgroundColor: 'hsl(var(--primary))',
-                      color: 'hsl(var(--primary-foreground))',
-                      fontWeight: 'bold'
+                      backgroundColor: 'hsl(var(--primary) / 0.1)',
+                      color: 'hsl(var(--primary))',
+                      fontWeight: 'bold',
+                      border: '1px solid hsl(var(--primary) / 0.3)'
                     }
                   }}
                 />
-                <div className="mt-4 p-3 bg-muted/50 rounded-lg">
+                <div className={`mt-4 p-3 bg-muted/50 rounded-lg transition-all duration-300 ${isDateChanging ? 'bg-primary/10 ring-2 ring-primary/20' : ''}`}>
                   <h4 className="font-medium text-sm mb-2 flex items-center gap-2">
-                    <Clock className="h-4 w-4" />
+                    <Clock className={`h-4 w-4 transition-transform duration-300 ${isDateChanging ? 'rotate-180' : ''}`} />
                     Избрана дата
                   </h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className={`text-sm text-muted-foreground transition-all duration-300 ${isDateChanging ? 'text-primary font-medium' : ''}`}>
                     {selectedDate 
                       ? `${selectedDate.toLocaleDateString('bg-BG')} - ${selectedDateEvents.length} събития`
                       : "Изберете дата от календара"
                     }
                   </p>
+                  {isDateChanging && (
+                    <div className="mt-2">
+                      <div className="h-1 bg-primary/20 rounded-full overflow-hidden">
+                        <div className="h-full bg-primary rounded-full animate-pulse w-full"></div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>

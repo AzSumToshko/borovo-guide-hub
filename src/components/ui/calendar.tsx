@@ -37,11 +37,11 @@ function Calendar({
         cell: "relative p-0 text-center text-sm focus-within:relative focus-within:z-20",
         day: cn(
           buttonVariants({ variant: "ghost" }),
-          "h-12 w-12 p-0 font-normal rounded-md transition-all duration-200 hover:bg-accent hover:text-accent-foreground hover:scale-105 hover:shadow-sm"
+          "h-12 w-12 p-0 font-normal rounded-md transition-all duration-300 hover:bg-accent hover:text-accent-foreground hover:scale-105 hover:shadow-sm active:scale-95"
         ),
         day_range_end: "day-range-end",
         day_selected:
-          "bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground !rounded-md shadow-md font-semibold",
+          "bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground !rounded-md shadow-lg ring-2 ring-primary/20 ring-offset-2 font-bold transform scale-105 !important",
         day_today: "bg-accent text-accent-foreground font-semibold rounded-md border-2 border-primary/20",
         day_outside:
           "day-outside text-muted-foreground opacity-50 aria-selected:bg-accent/50 aria-selected:text-muted-foreground aria-selected:opacity-30",

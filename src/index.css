@@ -123,3 +123,40 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Navigation menu full-width dropdown fixes */
+@layer components {
+  /* Ensure navigation containers allow overflow */
+  nav[role="navigation"] {
+    overflow: visible !important;
+  }
+  
+  /* Ensure navigation menu items can extend beyond container bounds */
+  [data-radix-navigation-menu-content] {
+    width: auto !important;
+  }
+  
+  /* Prevent container clipping on navigation dropdowns */
+  .container:has([data-radix-navigation-menu-content]) {
+    overflow: visible !important;
+  }
+  
+  /* Fixed positioning for consistent dropdown location */
+  #main-navigation {
+    --nav-height: 100%;
+  }
+  
+  /* Calculate the exact position based on header + nav height */
+  :root {
+    /* Header section: py-4 (1rem top + 1rem bottom) + content (~64px) + nav height (py-6 = 3rem) */
+    --header-height: calc(2rem + 64px + 3rem);
+  }
+  
+  /* Disable all navigation menu animations */
+  [data-radix-navigation-menu-content],
+  [data-radix-navigation-menu-viewport],
+  [data-radix-navigation-menu-indicator] {
+    animation: none !important;
+    transition: none !important;
+  }
+}
