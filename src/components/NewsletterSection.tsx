@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Mail, Send, FileText, ChevronRight, Users } from "lucide-react";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
 
 const NewsletterSection = () => {
   const [email, setEmail] = useState("");
@@ -124,13 +125,15 @@ const NewsletterSection = () => {
             
             <CardContent className="space-y-4 flex-1 flex flex-col justify-between">
               <div className="space-y-4">
-                <Button 
-                  variant="outline" 
-                  className="w-full border-primary/20 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
-                >
-                  <FileText className="h-4 w-4 mr-2" />
-                  Виж всички анкети
-                </Button>
+                <Link to="/surveys">
+                  <Button 
+                    variant="outline" 
+                    className="w-full border-primary/20 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+                  >
+                    <FileText className="h-4 w-4 mr-2" />
+                    Виж всички анкети
+                  </Button>
+                </Link>
 
                 <div className="bg-accent/20 rounded-lg p-4">
                   <h4 className="font-medium text-sm mb-2 text-foreground">Защо е важно да участвате?</h4>
