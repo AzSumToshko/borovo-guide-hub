@@ -1,5 +1,5 @@
 import { Search, Phone, Bell, Menu, X, ShoppingCart, Megaphone, FolderOpen, Smartphone, Receipt, FileText } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet";
@@ -7,10 +7,71 @@ import borovoCoatOfArms from "@/assets/borovo-coat-of-arms.png";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { useI18n } from "@/i18n";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const Header = () => {
   const { locale, setLocale, t } = useI18n();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [navPosition, setNavPosition] = useState(0);
+  const navRef = useRef<HTMLElement>(null);
+
+  // Update navigation position
+  useEffect(() => {
+    const updateNavPosition = () => {
+      if (navRef.current) {
+        const rect = navRef.current.getBoundingClientRect();
+        setNavPosition(rect.bottom);
+      }
+    };
+
+    const handleResize = () => {
+      updateNavPosition();
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
+    
+    // Initial position calculation
+    updateNavPosition();
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  // Update position when dropdown opens
+  useEffect(() => {
+    if (openDropdown && navRef.current) {
+      const rect = navRef.current.getBoundingClientRect();
+      setNavPosition(rect.bottom);
+    }
+  }, [openDropdown]);
+
+  // Close dropdowns on scroll (immediate close to prevent visual artifacts)
+  useEffect(() => {
+    if (!openDropdown) return;
+
+    let isInitializing = true;
+    
+    // Small delay to prevent immediate closing during dropdown opening
+    const initTimeout = setTimeout(() => {
+      isInitializing = false;
+    }, 50);
+
+    const handleScroll = () => {
+      if (!isInitializing) {
+        setOpenDropdown(null);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(initTimeout);
+    };
+  }, [openDropdown]);
+
   return (
     <header className="bg-background shadow-[var(--shadow-header)]">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-primary text-primary-foreground px-3 py-1 rounded">Прескочи към съдържанието</a>
@@ -90,35 +151,202 @@ const Header = () => {
                   
                   <div className="flex-1 overflow-y-auto">
                     {/* Main Navigation */}
-                    <div className="p-4 border-b">
-                      <h3 className="font-semibold text-primary mb-3">Основни секции</h3>
-                      <div className="space-y-1">
-                        <a href="/about" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
-                          За Общината
-                        </a>
-                        <a href="/administration" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
-                          Администрация
-                        </a>
-                        <a href="/council" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
-                          Общински съвет
-                        </a>
-                        <a href="/documents" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
-                          Документи и решения
-                        </a>
-                        <a href="/news" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
-                          Новини
-                        </a>
-                        <a href="/events" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
-                          Събития
-                        </a>
-                        <a href="/announcements" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
-                          Обяви
-                        </a>
-                        <a href="/contacts" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
-                          Контакти
-                        </a>
+                                          <div className="p-6 border-b border-gray-100">
+                        <h3 className="font-bold text-lg text-primary mb-4 tracking-wide">Основни секции</h3>
+                        <Accordion type="single" collapsible className="w-full space-y-1" style={{width: '100%'}}>
+                          {/* За Общината */}
+                          <AccordionItem value="about" className="border-none w-full" style={{width: '100%'}}>
+                            <AccordionTrigger className="text-left font-semibold hover:no-underline py-3 px-4 rounded-lg hover:bg-slate-50 transition-colors group w-full">
+                              <a href="/about" className="flex-1 text-slate-700 group-hover:text-primary transition-colors" onClick={(e) => e.stopPropagation()}>
+                                За Общината
+                              </a>
+                            </AccordionTrigger>
+                            <AccordionContent className="px-4 pb-4 w-full">
+                              <div className="space-y-4 ml-2 w-full">
+                                <div>
+                                  <h4 className="font-semibold text-sm mb-3 text-primary uppercase tracking-wider">Община Борово</h4>
+                                  <div className="space-y-1 pl-2">
+                                    <a href="/about" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Представяне</a>
+                                    <a href="/about/history" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">История на града</a>
+                                    <a href="/about/geography" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Географска характеристика</a>
+                                    <a href="/about/demographics" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Демографска характеристика</a>
+                                    <a href="/about/villages" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Селища в общината</a>
+                                    <a href="/about/infrastructure" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Техническа инфраструктура</a>
+                                    <a href="/about/vision" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Визия на община Борово</a>
+                                    <a href="/about/citizens" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Почетни граждани</a>
+                                  </div>
+                                </div>
+                                <div>
+                                  <h4 className="font-semibold text-sm mb-3 text-primary uppercase tracking-wider">Култура и туризъм</h4>
+                                  <div className="space-y-1 pl-2">
+                                    <a href="/culture/calendar" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Културен календар</a>
+                                    <a href="/culture/events" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Местни празници</a>
+                                    <a href="/culture/library" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Библиотеки</a>
+                                    <a href="/culture/reading-room" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Читалища</a>
+                                    <a href="/culture/museums" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Музей</a>
+                                    <a href="/culture/monasteries" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Манастири</a>
+                                  </div>
+                                </div>
+                                <div>
+                                  <h4 className="font-semibold text-sm mb-3 text-primary uppercase tracking-wider">Благодарствени писма</h4>
+                                  <div className="space-y-1 pl-2">
+                                    <a href="/tourism/info" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Туристически информационен център</a>
+                                    <a href="/tourism/guide" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Електронен гид</a>
+                                    <a href="/awards/letters" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Благодарствени писма и позадравителни адреси</a>
+                                    <a href="/awards/citizens" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Побратимени градове</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+
+                          {/* Администрация */}
+                          <AccordionItem value="administration" className="border-none w-full" style={{width: '100%'}}>
+                            <AccordionTrigger className="text-left font-semibold hover:no-underline py-3 px-4 rounded-lg hover:bg-slate-50 transition-colors group w-full">
+                              <a href="/administration" className="flex-1 text-slate-700 group-hover:text-primary transition-colors" onClick={(e) => e.stopPropagation()}>
+                                Администрация
+                              </a>
+                            </AccordionTrigger>
+                            <AccordionContent className="px-4 pb-4 w-full">
+                              <div className="space-y-4 ml-2 w-full">
+                                <div>
+                                  <h4 className="font-semibold text-sm mb-3 text-primary uppercase tracking-wider">Общинска администрация</h4>
+                                  <div className="space-y-1 pl-2">
+                                    <a href="/administration/deputy-mayors" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Заместник кметове</a>
+                                    <a href="/administration/secretary" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Секретар</a>
+                                    <a href="/administration/architect" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Главен архитект</a>
+                                    <a href="/administration/structure" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Структура и контакти</a>
+                                    <a href="/administration/departments" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Дирекции и отдели</a>
+                                    <a href="/administration/rules" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Кодекс за поведение на служителите</a>
+                                    <a href="/administration/internal-rules" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Вътрешни правила</a>
+                                    <a href="/administration/mayor-chart" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Карта на кмета</a>
+                                  </div>
+                                </div>
+                                <div>
+                                  <h4 className="font-semibold text-sm mb-3 text-primary uppercase tracking-wider">Още информация</h4>
+                                  <div className="space-y-1 pl-2">
+                                    <a href="/administration/management" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Програма за управление</a>
+                                    <a href="/administration/strategy" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Стратегии за развитие</a>
+                                    <a href="/administration/access" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Достъп до обществена информация</a>
+                                    <a href="/administration/declarations" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Декларации и регистър на декларациите по ЗПКОНПИ</a>
+                                    <a href="/administration/iso" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Европейски стандарти ISO</a>
+                                    <a href="/administration/notifications" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Уведомления по чл.66 от АПК</a>
+                                    <a href="/administration/public-info" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Публична информация, съгласно ЗЗКИ</a>
+                                    <a href="/administration/regulation" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Устройствен правилник</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+
+                          {/* Дейности и услуги */}
+                          <AccordionItem value="services" className="border-none w-full" style={{width: '100%'}}>
+                            <AccordionTrigger className="text-left font-semibold hover:no-underline py-3 px-4 rounded-lg hover:bg-slate-50 transition-colors group w-full">
+                              <a href="/services" className="flex-1 text-slate-700 group-hover:text-primary transition-colors" onClick={(e) => e.stopPropagation()}>
+                                Дейности и услуги
+                              </a>
+                            </AccordionTrigger>
+                            <AccordionContent className="px-4 pb-4 w-full">
+                              <div className="space-y-4 ml-2 w-full">
+                                <div>
+                                  <h4 className="font-semibold text-sm mb-3 text-primary uppercase tracking-wider">Административни услуги</h4>
+                                  <div className="space-y-1 pl-2">
+                                    <a href="/services/electronic" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Електронни услуги</a>
+                                    <a href="/services/administrative" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Дирекция административно и информационно обслужване</a>
+                                    <a href="/services/local-revenue" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Дирекция местни приходи и бюджет</a>
+                                    <a href="/services/accounting" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Дирекция счетоводство, финансово управление и контрол</a>
+                                    <a href="/services/investment" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Дирекция инвестиционна политика и екология</a>
+                                    <a href="/services/cadastre" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Дирекция кадастър и общинска собственост</a>
+                                  </div>
+                                </div>
+                                <div>
+                                  <h4 className="font-semibold text-sm mb-3 text-primary uppercase tracking-wider">Други услуги</h4>
+                                  <div className="space-y-1 pl-2">
+                                    <a href="/services/education" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Дирекция образование, култура, спорт и връзки с обществеността</a>
+                                    <a href="/services/social" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Дирекция социални дейности, здравеопазване и транспорт</a>
+                                    <a href="/services/tourism" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">ОП "Туризъм"</a>
+                                    <a href="/services/covid" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Коронавирус COVID-19</a>
+                                    <a href="/services/surveys" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Анализи и анкети</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+
+                          {/* Актуално */}
+                          <AccordionItem value="news" className="border-none w-full" style={{width: '100%'}}>
+                            <AccordionTrigger className="text-left font-semibold hover:no-underline py-3 px-4 rounded-lg hover:bg-slate-50 transition-colors group w-full">
+                              <a href="/news" className="flex-1 text-slate-700 group-hover:text-primary transition-colors" onClick={(e) => e.stopPropagation()}>
+                                Актуално
+                              </a>
+                            </AccordionTrigger>
+                            <AccordionContent className="px-4 pb-4 w-full">
+                              <div className="space-y-4 ml-2 w-full">
+                                <div>
+                                  <h4 className="font-semibold text-sm mb-3 text-primary uppercase tracking-wider">Календар</h4>
+                                  <div className="space-y-1 pl-2">
+                                    <a href="/calendar/cultural" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Културен календар</a>
+                                    <a href="/calendar/sports" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Спортен календар</a>
+                                  </div>
+                                </div>
+                                <div>
+                                  <h4 className="font-semibold text-sm mb-3 text-primary uppercase tracking-wider">Полезни връзки</h4>
+                                  <div className="space-y-1 pl-2">
+                                    <a href="/links/corruption" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Сигнали за корупция</a>
+                                    <a href="/links/ministry-economy" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Министерство на икономиката</a>
+                                    <a href="/links/ministry-labor" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Министерство на труда и социалната политика</a>
+                                    <a href="/links/eu-funds" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Структурни фондове на ЕС</a>
+                                    <a href="/links/association" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Сдружение "МИГ-Кърлен-Асеновград"</a>
+                                    <a href="/links/questions" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Вашите въпроси</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+
+                          {/* Общински съвет */}
+                          <AccordionItem value="council" className="border-none w-full" style={{width: '100%'}}>
+                            <AccordionTrigger className="text-left font-semibold hover:no-underline py-3 px-4 rounded-lg hover:bg-slate-50 transition-colors group w-full">
+                              <a href="/council" className="flex-1 text-slate-700 group-hover:text-primary transition-colors" onClick={(e) => e.stopPropagation()}>
+                                Общински съвет
+                              </a>
+                            </AccordionTrigger>
+                            <AccordionContent className="px-4 pb-4 w-full">
+                              <div className="space-y-4 ml-2 w-full">
+                                <div>
+                                  <h4 className="font-semibold text-sm mb-3 text-primary uppercase tracking-wider">Структура и състав</h4>
+                                  <div className="space-y-1 pl-2">
+                                    <a href="/council/chairman" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Председател</a>
+                                    <a href="/council/vice-chairmen" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Заместник председатели</a>
+                                    <a href="/council/councilors" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Общински съветници</a>
+                                    <a href="/council/groups" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Политически групи</a>
+                                    <a href="/council/commissions" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Комисии</a>
+                                    <a href="/council/declarations" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Декларации</a>
+                                    <a href="/council/contacts" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Контакти</a>
+                                  </div>
+                                </div>
+                                <div>
+                                  <h4 className="font-semibold text-sm mb-3 text-primary uppercase tracking-wider">Нормативна база</h4>
+                                  <div className="space-y-1 pl-2">
+                                    <a href="/council/decisions" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Решения</a>
+                                    <a href="/council/regulations" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Наредби</a>
+                                    <a href="/council/bylaws" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Правилници</a>
+                                    <a href="/council/acts-discussion" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Нормативни актове за обсъждане</a>
+                                    <a href="/council/announcements" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Обявления</a>
+                                    <a href="/council/programs" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Програми</a>
+                                    <a href="/council/reports" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Отчети общински съвет</a>
+                                    <a href="/council/protocols" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Протоколи на заседания на общински съвет</a>
+                                    <a href="/council/protocols-permanent" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Протоколи от заседания на постоянните комисии</a>
+                                    <a href="/council/daily-order" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Дневен ред и график</a>
+                                    <a href="/council/public-register" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Публичен регистър на питанията и отговорите към тях</a>
+                                    <a href="/council/video" className="text-sm text-gray-600 hover:text-primary hover:bg-gray-50 block py-2 px-3 rounded-md transition-all">Видео</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                        </Accordion>
                       </div>
-                    </div>
 
                     {/* Quick Services */}
                     <div className="p-4">
@@ -194,17 +422,17 @@ const Header = () => {
       </div>
 
       {/* Desktop Navigation */}
-      <nav className="hidden lg:block bg-primary text-primary-foreground relative overflow-visible" role="navigation" aria-label="Главна навигация" id="main-navigation">
+      <nav ref={navRef} className="hidden lg:block bg-primary text-primary-foreground relative overflow-visible" role="navigation" aria-label="Главна навигация" id="main-navigation">
         <div className="container mx-auto px-4 relative overflow-visible">
           <div className="flex items-center overflow-visible">
-            <NavigationMenu className="static w-full overflow-visible">
+            <NavigationMenu className="static w-full overflow-visible" value={openDropdown} onValueChange={setOpenDropdown}>
               <NavigationMenuList className="flex items-center space-x-0 overflow-visible">
-                <NavigationMenuItem className="relative overflow-visible">
+                <NavigationMenuItem className="relative overflow-visible" value="about">
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     За Общината
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: 'var(--header-height)'}}>
+                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: `${navPosition}px`}}>
                       <div className="container mx-auto px-8 py-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* Left section with cards */}
@@ -281,12 +509,12 @@ const Header = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem className="relative">
+                <NavigationMenuItem className="relative" value="administration">
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Администрация
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: 'var(--header-height)'}}>
+                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: `${navPosition}px`}}>
                       <div className="container mx-auto px-8 py-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* Mayor section with image */}
@@ -342,12 +570,12 @@ const Header = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem className="relative">
+                <NavigationMenuItem className="relative" value="services">
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Дейности и услуги
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: 'var(--header-height)'}}>
+                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: `${navPosition}px`}}>
                       <div className="container mx-auto px-8 py-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* Service category cards */}
@@ -420,12 +648,12 @@ const Header = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem className="relative">
+                <NavigationMenuItem className="relative" value="news">
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Актуално
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: 'var(--header-height)'}}>
+                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: `${navPosition}px`}}>
                       <div className="container mx-auto px-8 py-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* News cards with icons */}
@@ -493,12 +721,12 @@ const Header = () => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem className="relative">
+                <NavigationMenuItem className="relative" value="council">
                   <NavigationMenuTrigger className="bg-primary text-primary-foreground hover:bg-primary-light py-6 px-4 rounded-none text-sm">
                     Общински съвет
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: 'var(--header-height)'}}>
+                    <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: `${navPosition}px`}}>
                       <div className="container mx-auto px-8 py-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* Council cards with images */}
@@ -574,7 +802,7 @@ const Header = () => {
       </nav>
 
       {/* Mobile Navigation */}
-      <div className="lg:hidden bg-primary text-primary-foreground">
+      <div className="hidden bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <Sheet>
             <SheetTrigger asChild>
