@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import borovoCoatOfArms from "@/assets/borovo-coat-of-arms.png";
 import { Progress } from "@/components/ui/progress";
 
 const SurveysPage = () => {
@@ -34,30 +33,24 @@ const SurveysPage = () => {
       </Helmet>
 
       <Header />
-
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-municipal-navy to-municipal-navy/90 text-white py-16 md:py-24">
-        <div className="absolute inset-0 bg-municipal-navy/20"></div>
-        <div className="container mx-auto px-4 relative">
-          <div className="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
-            <div className="flex-shrink-0">
-              <img 
-                src={borovoCoatOfArms} 
-                alt="Герб на Община Борово" 
-                className="w-24 h-24 md:w-32 md:h-32"
-              />
-            </div>
-            <div className="text-center md:text-left">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                АНКЕТИ
-              </h1>
-              <p className="text-lg md:text-xl opacity-90 leading-relaxed">
-                Резултати от проведени анкети в Община Борово
-              </p>
-            </div>
+      
+      {/* Hero Section - Same as buyer-profile */}
+      <main id="main">
+        <div 
+          className="bg-gradient-to-br from-primary via-primary-light to-accent text-primary-foreground py-20 relative overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/src/assets/borovo-hero.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          <div className="container mx-auto px-4 relative z-10">
+            <h1 className="text-4xl font-bold mb-4">АНКЕТИ</h1>
+            <p className="text-xl opacity-90">Резултати от проведени анкети в Община Борово</p>
           </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-accent/50"></div>
         </div>
-      </section>
 
       {/* Survey Results Section */}
       <section className="py-12 bg-background">
@@ -95,6 +88,7 @@ const SurveysPage = () => {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>
