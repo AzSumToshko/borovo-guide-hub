@@ -10,6 +10,7 @@ import AboutPage from "./pages/AboutPage";
 import AdministrationPage from "./pages/AdministrationPage";
 import ServicesPage from "./pages/ServicesPage";
 import NewsPage from "./pages/NewsPage";
+import NewsDetailPage from "./pages/NewsDetailPage";
 import CouncilPage from "./pages/CouncilPage";
 import NotFound from "./pages/NotFound";
 import DocumentsPage from "./pages/DocumentsPage";
@@ -58,6 +59,7 @@ const App = () => (
             <Route path="/services/technical" element={<TechnicalServicesPage />} />
             <Route path="/services/social" element={<SocialServicesPage />} />
             <Route path="/news" element={<NewsPage />} />
+            <Route path="/news/:id" element={<NewsDetailPage />} />
             <Route path="/news/events" element={<EventsPage />} />
             <Route path="/news/announcements" element={<AnnouncementsPage />} />
             <Route path="/news/tenders" element={<TendersPage />} />

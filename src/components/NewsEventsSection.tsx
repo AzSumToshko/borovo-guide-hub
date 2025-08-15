@@ -51,32 +51,34 @@ const NewsEventsSection = () => {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
           {newsItems.map((item, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden animate-scale-in" style={{animationDelay: `${index * 100}ms`}}>
-              <div className="aspect-[4/3] overflow-hidden">
-                <img 
-                  src={item.image} 
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <CardHeader className="pb-2 p-3 sm:p-6">
-                <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground mb-2">
-                  <Calendar className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-                  <span className="truncate">{item.date}</span>
+            <Link key={index} to={`/news/${index + 1}`}>
+              <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden animate-scale-in" style={{animationDelay: `${index * 100}ms`}}>
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <span className="text-xs text-municipal-green font-medium uppercase tracking-wide">
-                  {item.category}
-                </span>
-                <CardTitle className="text-sm font-bold leading-tight group-hover:text-municipal-green transition-colors duration-300 line-clamp-2">
-                  {item.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-0 p-3 sm:p-6">
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                  {item.description}
-                </p>
-              </CardContent>
-            </Card>
+                <CardHeader className="pb-2 p-3 sm:p-6">
+                  <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground mb-2">
+                    <Calendar className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                    <span className="truncate">{item.date}</span>
+                  </div>
+                  <span className="text-xs text-municipal-green font-medium uppercase tracking-wide">
+                    {item.category}
+                  </span>
+                  <CardTitle className="text-sm font-bold leading-tight group-hover:text-municipal-green transition-colors duration-300 line-clamp-2">
+                    {item.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-0 p-3 sm:p-6">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                    {item.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
         

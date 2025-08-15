@@ -3,83 +3,127 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Eye, MessageSquare } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const NewsPage = () => {
   const newsItems = [
     {
       id: 1,
-      title: "Започва реконструкция на централния площад в Борово",
-      date: "понеделник, 04 август 2025",
-      category: "Инфраструктура",
+      title: "ТЕЧЕ СГРАДИ ЗА РЕГИСТРАЦИЯ НА КОЛАВНИЦИ",
+      date: "сряда, 13 август 2025",
+      category: "За гражданите",
       views: 245,
-      comments: 12,
-      content: "Община Борово официално обяви началото на мащабната реконструкция на централния градски площад. Проектът включва модернизация на пешеходните зони, нова осветителна система и създаване на зелени площи за отдих на гражданите.",
+      comments: 6,
+      content: "За гражданите и за фирмите.",
+      image: "/lovable-uploads/37d18aff-611b-4870-8afe-79f9ca532baa.png",
       featured: true
     },
     {
       id: 2,
-      title: "Нови възможности за младежи в Община Борово",
-      date: "събота, 02 август 2025",
-      category: "Образование",
+      title: "ГОТОВО Е СЪОРЪЖЕНИЕТО, КОЕТО ЩЕ ОСИГУРИ ВОДА ЗА С. ЧЕРВЕН - СВИЛ АСЕНОВГРАД",
+      date: "сряда, 13 август 2025",
+      category: "Инфраструктура",
       views: 189,
       comments: 8,
-      content: "Стартира нова програма за професионално развитие на младите хора в общината. Програмата включва безплатни курсове по дигитални технологии, предприемачество и устойчиво развитие.",
+      content: "Остават 72-часовите проби.",
+      image: "/lovable-uploads/37d18aff-611b-4870-8afe-79f9ca532baa.png",
       featured: false
     },
     {
       id: 3,
-      title: "Модернизация на училищната инфраструктура",
-      date: "петък, 01 август 2025",
-      category: "Образование",
+      title: "НОВА АКЦИЯ В АСЕНОВГРАД ЗА ИЗДАВАНЕ НА ЕЛЕКТРОННО ЗДРАВНО ДОСИЕ",
+      date: "вторник, 12 август 2025",
+      category: "Здравеопазване",
       views: 312,
       comments: 15,
-      content: "Община Борово инвестира в подобряване на образователната среда чрез ремонт и модернизация на училищните сгради. Проектът е финансиран със средства от Европейския съюз.",
+      content: "Вторник, 12 август 2025. Услугата е безплатна и ще се осъществи от екип на РЗИ – Пловдив, със съдействието на община Асеновград.",
+      image: "/lovable-uploads/37d18aff-611b-4870-8afe-79f9ca532baa.png",
       featured: false
     },
     {
       id: 4,
-      title: "Екологични инициативи за чиста околна среда",
-      date: "четвъртък, 31 юли 2025",
-      category: "Екология",
+      title: "ФИНАЛИЗИРА СЕ ПРОЕКТЪТ ЗА ПОДМЯНА НА УЛИЧНОТО ОСВЕТЛЕНИЕ В АСЕНОВГРАД",
+      date: "понеделник, 10 август 2025",
+      category: "Инфраструктура",
       views: 156,
       comments: 6,
-      content: "Започва нова кампания за опазване на околната среда и устойчиво развитие. Инициативата включва разширяване на рециклирането и създаване на нови зелени зони.",
+      content: "Понеделник, 05 август 2025. Постигнати са добри резултати и досега покай за жителите на общината.",
+      image: "/lovable-uploads/37d18aff-611b-4870-8afe-79f9ca532baa.png",
       featured: false
     },
     {
       id: 5,
-      title: "Културен фестивал ще се проведе през септември",
-      date: "сряда, 30 юли 2025",
-      category: "Култура",
+      title: "МЕРКИТЕ СРЕЩУ ШАРКАТА ПО ОВЦЕ И КОЗИ В АСЕНОВГРАДСКО – ЗА ОЩЕ 28 ДНИ",
+      date: "четвъртък, 07 август 2025",
+      category: "Животновъдство",
       views: 278,
       comments: 22,
-      content: "Традиционният културен фестивал на Борово ще се проведе на 15-17 септември. Програмата включва концерти, изложби и демонстрации на народни занаяти.",
+      content: "четвъртък, 07 август 2025. Целта е да не се допусне разпространението на заболяването.",
+      image: "/lovable-uploads/37d18aff-611b-4870-8afe-79f9ca532baa.png",
       featured: false
     },
     {
       id: 6,
-      title: "Нова спортна площадка за децата",
-      date: "вторник, 29 юли 2025",
-      category: "Спорт",
+      title: "ЧАСТ ОТ СОЦИАЛНИТЕ УСЛУГИ В АСЕНОВГРАД РАБОТЯТ НАД КАПАЦИТЕТА",
+      date: "четвъртък, 05 август 2025",
+      category: "Социални услуги",
       views: 134,
       comments: 9,
-      content: "Откриха нова многофункционална спортна площадка в центъра на града. Съоръжението е предназначено за деца и младежи и включва баскетболно и волейболно игрище.",
+      content: "четвъртък, 05 август 2025. Има справки брой заяви в Асеновград, получаваш специална подкрепа от общинските служби в с Овчарица.",
+      image: "/lovable-uploads/37d18aff-611b-4870-8afe-79f9ca532baa.png",
+      featured: false
+    },
+    {
+      id: 7,
+      title: "ПРАВИЛА ЗА ИЗЛОЖЕНИ ЛОГОТО НА БИОСФЕРЕН ПАРК ЧЕРЕНГАГА СТЕНА",
+      date: "четвъртък, 05 август 2025",
+      category: "Екология",
+      views: 198,
+      comments: 11,
+      content: "четвъртък, 05 август 2025. Извършене и съответствие на биосферен! Може да се получи всяко време и услуги. Важные всяко за извършване.",
+      image: "/lovable-uploads/37d18aff-611b-4870-8afe-79f9ca532baa.png",
+      featured: false
+    },
+    {
+      id: 8,
+      title: "В АСЕНОВГРАД СТАРТИРА ИНИЦИАТИВЕН КОНКУРС – ПРИКАЗКА СМЕТИ ПРЕЧ!",
+      date: "вторник, 05 август 2025",
+      category: "Екология",
+      views: 165,
+      comments: 7,
+      content: "вторник, 05 август 2025. Възможностите за всички начинани! кампании се намират отговорност на поведение отпредвид.",
+      image: "/lovable-uploads/37d18aff-611b-4870-8afe-79f9ca532baa.png",
       featured: false
     }
   ];
 
-  const categories = ["Всички", "Инфраструктура", "Образование", "Екология", "Култура", "Спорт"];
+  const categories = ["Всички", "За гражданите", "Инфраструктура", "Здравеопазване", "Животновъдство", "Социални услуги", "Екология"];
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Новини | Община Борово</title>
+        <meta name="description" content="Последни новини и събития от Община Борово" />
+        <link rel="canonical" href="https://borovo.bg/news" />
+      </Helmet>
       <Header />
       
-      {/* Page Header */}
-      <div className="bg-primary text-primary-foreground py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-bold text-center">АКТУАЛНО</h1>
-          <p className="text-xl text-center mt-4 opacity-90">Последни новини и събития от Община Борово</p>
+      {/* Hero Section */}
+      <div 
+        className="bg-gradient-to-br from-primary via-primary-light to-accent text-primary-foreground py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/src/assets/borovo-hero.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="container mx-auto px-4 relative z-10">
+          <h1 className="text-4xl font-bold mb-4">НОВИНИ</h1>
+          <p className="text-xl opacity-90">Последни новини и събития от Община Борово</p>
         </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-accent/50"></div>
       </div>
 
       {/* Content */}
@@ -97,90 +141,59 @@ const NewsPage = () => {
           ))}
         </div>
 
-        {/* Featured News */}
-        {newsItems.filter(item => item.featured).map((item) => (
-          <Card key={item.id} className="mb-8 border-l-4 border-l-primary">
-            <CardHeader>
-              <div className="flex items-center gap-2 mb-2">
-                <Badge variant="default">Важно</Badge>
-                <Badge variant="outline">{item.category}</Badge>
-              </div>
-              <CardTitle className="text-2xl text-primary hover:text-primary-dark cursor-pointer transition-colors">
-                {item.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                <div className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
-                  {item.date}
-                </div>
-                <div className="flex items-center gap-1">
-                  <Eye className="w-4 h-4" />
-                  {item.views} прегледа
-                </div>
-                <div className="flex items-center gap-1">
-                  <MessageSquare className="w-4 h-4" />
-                  {item.comments} коментара
-                </div>
-              </div>
-              <p className="text-muted-foreground leading-relaxed">{item.content}</p>
-            </CardContent>
-          </Card>
-        ))}
-
-        {/* Regular News Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {newsItems.filter(item => !item.featured).map((item) => (
-            <Card key={item.id} className="hover:shadow-[var(--shadow-card)] transition-shadow cursor-pointer">
-              <CardHeader>
-                <div className="flex items-center gap-2 mb-2">
-                  <Badge variant="outline">{item.category}</Badge>
-                </div>
-                <CardTitle className="text-lg line-clamp-2 text-primary hover:text-primary-dark transition-colors">
-                  {item.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    {item.date}
+        {/* News Grid */}
+        <div className="grid gap-6">
+          {newsItems.map((item) => (
+            <Link key={item.id} to={`/news/${item.id}`}>
+              <Card className="hover:shadow-[var(--shadow-card)] transition-shadow cursor-pointer border-l-4 border-l-primary">
+                <div className="flex">
+                  <div className="flex-shrink-0 w-48 h-32">
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <div className="flex items-center gap-1">
-                    <Eye className="w-3 h-3" />
-                    {item.views}
+                  <div className="flex-1 p-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Badge variant="outline">{item.category}</Badge>
+                    </div>
+                    <CardTitle className="text-lg mb-2 text-primary hover:text-primary-dark transition-colors line-clamp-2">
+                      {item.title}
+                    </CardTitle>
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        {item.date}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Eye className="w-4 h-4" />
+                        {item.views} прегледа
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MessageSquare className="w-4 h-4" />
+                        {item.comments} коментара
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground line-clamp-2">{item.content}</p>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">
-                  {item.content}
-                </p>
-              </CardContent>
-            </Card>
+              </Card>
+            </Link>
           ))}
         </div>
 
-        {/* Archive Link */}
+
+        {/* Archive and navigation */}
         <div className="text-center mt-12">
-          <Card className="inline-block">
-            <CardContent className="pt-6">
-              <h3 className="text-lg font-semibold text-primary mb-2">Архив на новините</h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Разгледайте всички новини от предишни месеци
-              </p>
-              <div className="flex gap-2 justify-center">
-                <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground">
-                  Юли 2025
-                </Badge>
-                <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground">
-                  Юни 2025
-                </Badge>
-                <Badge variant="outline" className="cursor-pointer hover:bg-primary hover:text-primary-foreground">
-                  Май 2025
-                </Badge>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="flex justify-center gap-2">
+            <span className="px-3 py-1 bg-primary text-primary-foreground rounded">1</span>
+            <span className="px-3 py-1 text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded cursor-pointer transition-colors">2</span>
+            <span className="px-3 py-1 text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded cursor-pointer transition-colors">3</span>
+            <span className="px-3 py-1 text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded cursor-pointer transition-colors">...</span>
+            <span className="px-3 py-1 text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded cursor-pointer transition-colors">следваща</span>
+            <span className="px-3 py-1 text-muted-foreground hover:bg-primary hover:text-primary-foreground rounded cursor-pointer transition-colors">последна</span>
+          </div>
         </div>
       </div>
 
