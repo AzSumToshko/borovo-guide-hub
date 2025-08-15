@@ -20,6 +20,7 @@ import AnnouncementsPage from "./pages/AnnouncementsPage";
 import TendersPage from "./pages/TendersPage";
 import PublicRegistersPage from "./pages/PublicRegistersPage";
 import BuyerProfilePage from "./pages/BuyerProfilePage";
+import ProcurementDetailPage from "./pages/ProcurementDetailPage";
 import DeclarationsPage from "./pages/DeclarationsPage";
 import AccessToInformationPage from "./pages/AccessToInformationPage";
 import ContactsPage from "./pages/ContactsPage";
@@ -49,6 +50,7 @@ const App = () => (
             <Route path="/news/tenders" element={<TendersPage />} />
             <Route path="/registers" element={<PublicRegistersPage />} />
             <Route path="/buyer-profile" element={<BuyerProfilePage />} />
+            <Route path="/buyer-profile/:id" element={<ProcurementDetailPage />} />
             <Route path="/declarations" element={<DeclarationsPage />} />
             <Route path="/access-to-information" element={<AccessToInformationPage />} />
             <Route path="/contacts" element={<ContactsPage />} />
