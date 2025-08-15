@@ -45,11 +45,12 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-4">БЪРЗИ ВРЪЗКИ</h3>
             <div className="space-y-2">
-              <div><a href="/services" className="hover:text-primary-light transition-colors">Електронни услуги</a></div>
-              <div><a href="/services/local-taxes" className="hover:text-primary-light transition-colors">Данъци и такси</a></div>
+              <div><a href="/buyer-profile" className="hover:text-primary-light transition-colors">Профил на купувач</a></div>
+              <div><a href="/news/tenders" className="hover:text-primary-light transition-colors">Обяви търгове и конкурси</a></div>
+              <div><a href="/projects" className="hover:text-primary-light transition-colors">Проекти</a></div>
+              <div><a href="/electronic-services" className="hover:text-primary-light transition-colors">Електронни услуги</a></div>
+              <div><a href="/services/local-taxes" className="hover:text-primary-light transition-colors">Местни данъци и такси</a></div>
               <div><a href="/registers" className="hover:text-primary-light transition-colors">Публични регистри</a></div>
-              <div><a href="/news/tenders" className="hover:text-primary-light transition-colors">Обяви и търгове</a></div>
-              <div><a href="/accessibility" className="hover:text-primary-light transition-colors">Декларация за достъпност</a></div>
               <div><a href="/sitemap" className="hover:text-primary-light transition-colors">Карта на сайта</a></div>
             </div>
           </div>
