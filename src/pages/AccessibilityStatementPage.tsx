@@ -18,14 +18,42 @@ const AccessibilityStatementPage = () => {
       </Helmet>
       <Header />
       <main id="main">
-        <div className="bg-primary text-primary-foreground py-12">
-          <div className="container mx-auto px-4">
-            <h1 className="text-3xl font-bold">{t("footer.accessibility")}</h1>
-            <p className="opacity-90 mt-2">{desc}</p>
+        <div 
+          className="bg-gradient-to-br from-primary via-primary-light to-accent text-primary-foreground py-20 relative overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/src/assets/borovo-hero.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          <div className="container mx-auto px-4 relative z-10">
+            <h1 className="text-4xl font-bold mb-4">Достъпност на съдържанието</h1>
+            <p className="text-xl opacity-90">{desc}</p>
           </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-accent/50"></div>
         </div>
-        <div className="container mx-auto px-4 py-10 space-y-4 text-muted-foreground">
-          <p>Ние се стремим да осигурим достъпност на нашия сайт за всички потребители. Ако срещнете проблеми, свържете се с нас на info@borovo.bg.</p>
+        
+        <div className="container mx-auto px-4 py-10">
+          <div className="space-y-4">
+            <div className="bg-card p-6 rounded-lg border border-border hover:shadow-lg transition-shadow">
+              <a href="/accessibility-declaration" className="block">
+                <h2 className="text-lg font-semibold text-primary hover:text-primary-dark transition-colors flex items-center gap-2">
+                  <span className="text-primary">▶</span>
+                  Декларация за достъпност
+                </h2>
+              </a>
+            </div>
+            
+            <div className="bg-card p-6 rounded-lg border border-border hover:shadow-lg transition-shadow">
+              <a href="/accessibility-policy" className="block">
+                <h2 className="text-lg font-semibold text-primary hover:text-primary-dark transition-colors flex items-center gap-2">
+                  <span className="text-primary">▶</span>
+                  Политика за достъпност
+                </h2>
+              </a>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />
