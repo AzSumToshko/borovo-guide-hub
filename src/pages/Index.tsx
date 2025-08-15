@@ -17,16 +17,19 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <Hero />
-      <BottomNavigation />
-      <ProjectsBanner />
-      <NewsEventsSection />
-      <StatsSection />
-      <EventsCalendarSection />
-      <NewsletterSection />
-      <MunicipalActivitiesSection />
-      <LearnMoreSection />
-      {/* <AnnouncementsGrid />
-      <QuickLinksSection /> */}
+      
+      {/* Mobile-optimized spacing and layout */}
+      <div className="space-y-4 sm:space-y-6 lg:space-y-8">
+        <BottomNavigation />
+        <ProjectsBanner />
+        <NewsEventsSection />
+        <StatsSection />
+        <EventsCalendarSection />
+        <NewsletterSection />
+        <MunicipalActivitiesSection />
+        <LearnMoreSection />
+      </div>
+      
       <Footer />
     </div>
   );

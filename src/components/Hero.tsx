@@ -3,7 +3,7 @@ import { MapPin } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative h-[600px] overflow-hidden">
+    <section className="relative h-[400px] sm:h-[500px] lg:h-[600px] overflow-hidden">
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${borovoHero})` }}
@@ -12,17 +12,17 @@ const Hero = () => {
       </div>
       
       <div className="relative container mx-auto px-4 h-full flex items-center">
-        <div className="max-w-2xl text-white">
-          <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        <div className="max-w-2xl text-white animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
             ОБЩИНА <span className="text-municipal-green">БОРОВО</span>
           </h1>
-          <p className="text-xl lg:text-2xl mb-8 opacity-90 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 opacity-90 leading-relaxed">
             Добре дошли в официалния сайт на Община Борово. 
             Вашият дигитален достъп до всички общински услуги.
           </p>
           
-          <div className="flex items-center gap-2 text-white/80">
-            <MapPin className="w-5 h-5 text-municipal-green" />
+          <div className="flex items-center gap-2 text-white/80 text-sm sm:text-base">
+            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-municipal-green flex-shrink-0" />
             <span>гр. Борово, Област Русе</span>
           </div>
         </div>

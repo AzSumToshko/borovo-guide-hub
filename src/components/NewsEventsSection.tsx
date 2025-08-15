@@ -40,18 +40,18 @@ const NewsEventsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-12 sm:py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-municipal-navy mb-4">
+        <div className="text-center mb-8 sm:mb-12 animate-fade-in">
+          <h2 className="text-2xl sm:text-3xl font-bold text-municipal-navy mb-4">
             НОВИНИ И СЪБИТИЯ
           </h2>
-          <div className="w-24 h-1 bg-municipal-green mx-auto"></div>
+          <div className="w-16 sm:w-24 h-1 bg-municipal-green mx-auto"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
           {newsItems.map((item, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+            <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden animate-scale-in" style={{animationDelay: `${index * 100}ms`}}>
               <div className="aspect-[4/3] overflow-hidden">
                 <img 
                   src={item.image} 
@@ -59,10 +59,10 @@ const NewsEventsSection = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <CardHeader className="pb-2">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                  <Calendar className="w-4 h-4" />
-                  <span>{item.date}</span>
+              <CardHeader className="pb-2 p-3 sm:p-6">
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground mb-2">
+                  <Calendar className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
+                  <span className="truncate">{item.date}</span>
                 </div>
                 <span className="text-xs text-municipal-green font-medium uppercase tracking-wide">
                   {item.category}
@@ -71,8 +71,8 @@ const NewsEventsSection = () => {
                   {item.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="pt-0">
-                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+              <CardContent className="pt-0 p-3 sm:p-6">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
                   {item.description}
                 </p>
               </CardContent>
@@ -84,9 +84,10 @@ const NewsEventsSection = () => {
           <Button 
             asChild 
             variant="outline" 
-            className="border-municipal-green text-municipal-green hover:bg-municipal-green hover:text-white"
+            size="sm"
+            className="border-municipal-green text-municipal-green hover:bg-municipal-green hover:text-white w-full sm:w-auto"
           >
-            <Link to="/news" className="flex items-center gap-2">
+            <Link to="/news" className="flex items-center justify-center gap-2">
               Всички новини
               <ArrowRight className="w-4 h-4" />
             </Link>
