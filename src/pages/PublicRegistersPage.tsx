@@ -20,27 +20,21 @@ const PublicRegistersPage = () => {
       </Helmet>
       <Header />
       <main id="main">
-        <section className="relative h-[300px] sm:h-[400px] overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${borovoHero})` }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-municipal-navy/90 via-municipal-navy/70 to-transparent"></div>
+        <div 
+          className="bg-gradient-to-br from-primary via-primary-light to-accent text-primary-foreground py-20 relative overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${borovoHero}')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          <div className="container mx-auto px-4 relative z-10">
+            <h1 className="text-4xl font-bold mb-4">{t("nav.registers")}</h1>
+            <p className="text-xl opacity-90">{descBg}</p>
           </div>
-          
-          <div className="relative container mx-auto px-4 h-full flex items-center">
-            <div className="max-w-2xl text-white">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">
-                {t("nav.registers")}
-              </h1>
-              <p className="text-base sm:text-lg opacity-90 leading-relaxed">
-                {descBg}
-              </p>
-            </div>
-          </div>
-          
-          <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-tl from-municipal-green/20 to-transparent"></div>
-        </section>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-accent/50"></div>
+        </div>
         <div className="container mx-auto px-4 py-10 space-y-6">
           <div className="bg-card rounded-lg p-6 shadow-sm">
             <h2 className="text-xl font-semibold mb-4 text-primary">Договори и разрешения по заеми и природни отношения</h2>
