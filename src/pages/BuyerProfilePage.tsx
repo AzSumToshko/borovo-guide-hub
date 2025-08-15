@@ -6,7 +6,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { Calendar } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const procurementProcedures = [
@@ -54,26 +53,35 @@ const BuyerProfilePage = () => {
       </Helmet>
       <Header />
       <main id="main">
-        <div className="bg-primary text-primary-foreground py-12">
-          <div className="container mx-auto px-4">
-            <h1 className="text-3xl font-bold">{t("nav.buyer")}</h1>
-            <p className="opacity-90 mt-2">{desc}</p>
+        <div 
+          className="bg-gradient-to-br from-primary via-primary-light to-accent text-primary-foreground py-20 relative overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/src/assets/borovo-hero.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          <div className="container mx-auto px-4 relative z-10">
+            <h1 className="text-4xl font-bold mb-4">{t("nav.buyer")}</h1>
+            <p className="text-xl opacity-90">{desc}</p>
           </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-accent/50"></div>
         </div>
         
         <div className="container mx-auto px-4 py-8">
           <div className="grid lg:grid-cols-4 gap-6">
             {/* Filters Sidebar */}
             <div className="lg:col-span-1">
-              <Card className="bg-[#8FB85B] text-white">
+              <Card className="bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-municipal">
                 <CardHeader>
-                  <CardTitle className="text-white text-center">ФИЛТРИРАЙ ПО:</CardTitle>
+                  <CardTitle className="text-primary-foreground text-center">ФИЛТРИРАЙ ПО:</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium mb-2">Тип на поръчката:</label>
                     <Select>
-                      <SelectTrigger className="bg-white text-black">
+                      <SelectTrigger className="bg-background text-foreground">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -86,39 +94,39 @@ const BuyerProfilePage = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Button variant="secondary" className="w-full text-center bg-gray-200 text-black hover:bg-gray-300">
+                    <Button variant="secondary" className="w-full text-center">
                       СТАРИ И ДЕЙСТВАЩИ ПРОЦЕДУРИ
                     </Button>
-                    <Button variant="secondary" className="w-full text-center bg-gray-200 text-black hover:bg-gray-300">
+                    <Button variant="secondary" className="w-full text-center">
                       ПРЕДВАРИТЕЛНИ ОБЯВЛЕНИЯ
                     </Button>
-                    <Button variant="secondary" className="w-full text-center bg-gray-200 text-black hover:bg-gray-300">
+                    <Button variant="secondary" className="w-full text-center">
                       АКТУАЛИЗАЦИИ КЪМ ДОГОВОРИ
                     </Button>
-                    <Button variant="secondary" className="w-full text-center bg-gray-200 text-black hover:bg-gray-300">
+                    <Button variant="secondary" className="w-full text-center">
                       ПУБЛИКАЦИИ ОТ АОП
                     </Button>
                   </div>
 
-                  <div className="bg-[#7DA54A] p-3 rounded">
-                    <p className="text-white text-center font-medium mb-3">ТЪРСЕНЕ ПО:</p>
+                  <div className="bg-accent/20 backdrop-blur-sm p-3 rounded border border-primary-foreground/20">
+                    <p className="text-primary-foreground text-center font-medium mb-3">ТЪРСЕНЕ ПО:</p>
                     <div className="space-y-3">
                       <div>
-                        <label className="block text-sm text-white mb-1">Заглавие:</label>
-                        <Input className="bg-white text-black" />
+                        <label className="block text-sm text-primary-foreground mb-1">Заглавие:</label>
+                        <Input className="bg-background text-foreground" />
                       </div>
                       <div className="text-center">
-                        <span className="text-white">ИЛИ</span>
+                        <span className="text-primary-foreground">ИЛИ</span>
                       </div>
                       <div>
-                        <label className="block text-sm text-white mb-1">Дата От:</label>
-                        <Input type="date" className="bg-white text-black" />
+                        <label className="block text-sm text-primary-foreground mb-1">Дата От:</label>
+                        <Input type="date" className="bg-background text-foreground" />
                       </div>
                       <div>
-                        <label className="block text-sm text-white mb-1">Дата До:</label>
-                        <Input type="date" className="bg-white text-black" />
+                        <label className="block text-sm text-primary-foreground mb-1">Дата До:</label>
+                        <Input type="date" className="bg-background text-foreground" />
                       </div>
-                      <Button className="w-full bg-gray-600 hover:bg-gray-700 text-white">
+                      <Button className="w-full bg-primary-dark hover:bg-primary text-primary-foreground">
                         Търси
                       </Button>
                     </div>
@@ -129,44 +137,33 @@ const BuyerProfilePage = () => {
 
             {/* Main Content */}
             <div className="lg:col-span-3">
-              <Card className="bg-[#8FB85B] text-white mb-4">
+              <Card className="bg-gradient-to-r from-primary to-accent text-primary-foreground mb-6 shadow-municipal">
                 <CardHeader>
-                  <CardTitle className="text-white text-center">ОБЩЕСТВЕНИ ПОРЪЧКИ</CardTitle>
+                  <CardTitle className="text-primary-foreground text-center text-xl">ОБЩЕСТВЕНИ ПОРЪЧКИ</CardTitle>
                 </CardHeader>
               </Card>
 
-              <div className="bg-gray-100 p-4 mb-4">
-                <p className="text-gray-700">
-                  Уважаеми гостници и господа,<br/>
-                  Уведомяваме Ви, че съгласно последните изискванията на Закона за обществените поръчки (ЗОП), Община Асеновград има
-                  нов Профил на Купувача, който е достъпен на следния линк:
-                </p>
-                <p className="text-red-600 font-bold mt-2">
-                  ПРОФИЛ НА КУПУВАЧА ЗА ПОРЪЧКИ СЛЕД 13 ЮНИ 2020 г.
-                </p>
-              </div>
-
               <div className="space-y-4">
                 {procurementProcedures.map((procedure) => (
-                  <Card key={procedure.id} className="border-l-4 border-l-blue-500">
+                  <Card key={procedure.id} className="border-l-4 border-l-primary shadow-card hover:shadow-municipal transition-shadow">
                     <CardContent className="pt-6">
                       <div className="flex justify-between items-start mb-4">
                         <div className="flex-1">
-                          <h3 className="font-bold text-lg mb-2">{procedure.title}</h3>
-                          <div className="text-sm text-gray-600 space-y-1">
+                          <h3 className="font-bold text-lg mb-2 text-foreground">{procedure.title}</h3>
+                          <div className="text-sm text-muted-foreground space-y-1">
                             <p>{procedure.date}</p>
-                            <p className="text-red-600 font-bold">№ {procedure.id}</p>
+                            <p className="text-destructive font-bold">№ {procedure.id}</p>
                           </div>
                         </div>
                         <Button 
                           onClick={() => handleOpenProcedure(procedure.id)}
-                          className="ml-4 whitespace-nowrap"
+                          className="ml-4 whitespace-nowrap bg-primary hover:bg-primary-dark"
                         >
                           ОТВОРИ ДОСИЕ
                         </Button>
                       </div>
                       <div className="flex gap-2">
-                        <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
+                        <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
                           {procedure.status}
                         </span>
                       </div>
