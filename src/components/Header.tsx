@@ -1,4 +1,4 @@
-import { Search, Phone, Bell, Menu, X } from "lucide-react";
+import { Search, Phone, Bell, Menu, X, ShoppingCart, Megaphone, FolderOpen, Smartphone, Receipt, FileText } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -74,6 +74,86 @@ const Header = () => {
             >
               <Search className="w-4 h-4" />
             </Button>
+            
+            {/* Mobile Menu */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button size="icon" variant="outline" aria-label="Меню">
+                  <Menu className="w-4 h-4" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-full sm:w-80 p-0">
+                <div className="flex flex-col h-full">
+                  <SheetHeader className="p-4 border-b">
+                    <SheetTitle className="text-left">Навигация</SheetTitle>
+                  </SheetHeader>
+                  
+                  <div className="flex-1 overflow-y-auto">
+                    {/* Main Navigation */}
+                    <div className="p-4 border-b">
+                      <h3 className="font-semibold text-primary mb-3">Основни секции</h3>
+                      <div className="space-y-1">
+                        <a href="/about" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          За Общината
+                        </a>
+                        <a href="/administration" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Администрация
+                        </a>
+                        <a href="/council" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Общински съвет
+                        </a>
+                        <a href="/documents" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Документи и решения
+                        </a>
+                        <a href="/news" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Новини
+                        </a>
+                        <a href="/events" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Събития
+                        </a>
+                        <a href="/announcements" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Обяви
+                        </a>
+                        <a href="/contacts" className="flex items-center p-3 rounded-lg hover:bg-muted transition-colors">
+                          Контакти
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* Quick Services */}
+                    <div className="p-4">
+                      <h3 className="font-semibold text-primary mb-3">Бързи услуги</h3>
+                      <div className="space-y-1">
+                        <a href="/buyer-profile" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors">
+                          <ShoppingCart className="w-4 h-4 text-primary" />
+                          Профил на купувач
+                        </a>
+                        <a href="/news/tenders" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors">
+                          <Megaphone className="w-4 h-4 text-primary" />
+                          Обяви търгове и конкурси
+                        </a>
+                        <a href="/projects" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors">
+                          <FolderOpen className="w-4 h-4 text-primary" />
+                          Проекти
+                        </a>
+                        <a href="/services" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors">
+                          <Smartphone className="w-4 h-4 text-primary" />
+                          Електронни услуги
+                        </a>
+                        <a href="/services/local-taxes" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors">
+                          <Receipt className="w-4 h-4 text-primary" />
+                          Местни данъци и такси
+                        </a>
+                        <a href="/registers" className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted transition-colors">
+                          <FileText className="w-4 h-4 text-primary" />
+                          Публични регистри
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
 

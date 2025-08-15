@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const BottomNavigation = () => {
   return (
-    <nav className="bg-primary/90 text-primary-foreground border-t border-primary-light/20" role="navigation" aria-label="Бърза навигация">
+    <nav className="hidden lg:block bg-primary/90 text-primary-foreground border-t border-primary-light/20" role="navigation" aria-label="Бърза навигация">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center">
           <div className="flex items-center space-x-0">
