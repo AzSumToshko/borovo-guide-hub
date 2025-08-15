@@ -29,7 +29,7 @@ const BottomNavigation = () => {
             </Button>
 
             <Button variant="ghost" className="bg-transparent text-primary-foreground hover:bg-primary-light py-6 px-8 rounded-none text-sm flex items-center gap-2" asChild>
-              <a href="/services">
+              <a href="/electronic-services">
                 <Smartphone className="w-4 h-4" />
                 Електронни услуги
               </a>

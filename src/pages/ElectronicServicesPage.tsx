@@ -78,14 +78,6 @@ const ElectronicServicesPage = () => {
         </div>
         
         <div className="container mx-auto px-4 py-12">
-          {/* Hero image section */}
-          <div className="mb-12">
-            <img 
-              src="/lovable-uploads/627bea0f-1f17-4c4b-a0b3-339fbe6e6fc7.png"
-              alt="Електронни услуги - ръце на таблет с свързани икони"
-              className="w-full h-64 sm:h-80 object-cover rounded-lg shadow-lg"
-            />
-          </div>
 
           {/* Services grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
