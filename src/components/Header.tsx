@@ -439,33 +439,35 @@ const Header = () => {
                       <div className="container mx-auto px-8 py-8">
                         <div className="grid grid-cols-12 gap-8">
                           {/* Left section with cards */}
-                          <div className="col-span-4 grid grid-cols-2 gap-4">
-                            <div className="relative overflow-hidden rounded-lg group cursor-pointer">
-                              <img src="/lovable-uploads/37d18aff-611b-4870-8afe-79f9ca532baa.png" alt="Забележителности" className="w-full h-32 object-cover" />
-                              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
-                              <div className="absolute bottom-3 left-3 right-3">
-                                <h3 className="text-white font-semibold text-sm">ЗАБЕЛЕЖИТЕЛНОСТИ</h3>
+                          <div className="col-span-4 grid grid-cols-2 gap-6">
+                            <div className="relative overflow-hidden rounded-xl group cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300">
+                              <img src="/lovable-uploads/37d18aff-611b-4870-8afe-79f9ca532baa.png" alt="Забележителности" className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                              <div className="absolute bottom-4 left-4 right-4">
+                                <h3 className="text-white font-bold text-base tracking-wide">ЗАБЕЛЕЖИТЕЛНОСТИ</h3>
+                                <p className="text-white/80 text-xs mt-1">Открийте културното наследство</p>
                               </div>
                             </div>
-                            <div className="relative overflow-hidden rounded-lg group cursor-pointer">
-                              <img src="/lovable-uploads/e0ddcfe3-4a8f-4931-a3bd-3208e8d74529.png" alt="Галерия" className="w-full h-32 object-cover" />
-                              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
-                              <div className="absolute bottom-3 left-3 right-3">
-                                <h3 className="text-white font-semibold text-sm">ГАЛЕРИЯ</h3>
+                            <div className="relative overflow-hidden rounded-xl group cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300">
+                              <img src="/lovable-uploads/e0ddcfe3-4a8f-4931-a3bd-3208e8d74529.png" alt="Галерия" className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                              <div className="absolute bottom-4 left-4 right-4">
+                                <h3 className="text-white font-bold text-base tracking-wide">ГАЛЕРИЯ</h3>
+                                <p className="text-white/80 text-xs mt-1">Снимки от нашия град</p>
                               </div>
                             </div>
-                            <div className="relative overflow-hidden rounded-lg group cursor-pointer">
-                              <div className="w-full h-32 bg-primary/20 flex items-center justify-center">
-                                <div className="text-center">
-                                  <div className="text-primary font-semibold text-sm">ОБРАЗОВАНИЕ</div>
-                                </div>
+                            <div className="relative overflow-hidden rounded-xl group cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300">
+                              <div className="w-full h-40 bg-gradient-to-br from-primary/20 to-primary/10 flex flex-col items-center justify-center group-hover:from-primary/30 group-hover:to-primary/20 transition-all duration-300">
+                                <GraduationCap className="w-12 h-12 text-primary mb-3 group-hover:scale-110 transition-transform duration-300" />
+                                <h3 className="text-primary font-bold text-base tracking-wide">ОБРАЗОВАНИЕ</h3>
+                                <p className="text-primary/70 text-xs mt-1">Училища и детски градини</p>
                               </div>
                             </div>
-                            <div className="relative overflow-hidden rounded-lg group cursor-pointer">
-                              <div className="w-full h-32 bg-primary/20 flex items-center justify-center">
-                                <div className="text-center">
-                                  <div className="text-primary font-semibold text-sm">ЗДРАВЕОПАЗВАНЕ</div>
-                                </div>
+                            <div className="relative overflow-hidden rounded-xl group cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300">
+                              <div className="w-full h-40 bg-gradient-to-br from-primary/20 to-primary/10 flex flex-col items-center justify-center group-hover:from-primary/30 group-hover:to-primary/20 transition-all duration-300">
+                                <Heart className="w-12 h-12 text-primary mb-3 group-hover:scale-110 transition-transform duration-300" />
+                                <h3 className="text-primary font-bold text-base tracking-wide">ЗДРАВЕОПАЗВАНЕ</h3>
+                                <p className="text-primary/70 text-xs mt-1">Медицински услуги</p>
                               </div>
                             </div>
                           </div>
