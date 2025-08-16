@@ -1,4 +1,4 @@
-import { Search, Phone, Bell, Menu, X, ShoppingCart, Megaphone, FolderOpen, Smartphone, Receipt, FileText, Theater, GraduationCap, Heart, Users, Activity, Leaf, Building, Car, Calendar } from "lucide-react";
+import { Search, Phone, Bell, Menu, X, ShoppingCart, Megaphone, FolderOpen, Smartphone, Receipt, FileText, Theater, GraduationCap, Heart, Users, Activity, Leaf, Building, Car, Calendar, Mail, Clock } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -522,19 +522,45 @@ const Header = () => {
                         <div className="grid grid-cols-12 gap-8">
                           {/* Mayor section with image */}
                           <div className="col-span-4">
-                            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg p-4">
-                              <h4 className="text-primary font-semibold text-base mb-4 uppercase">Д-р Христо Грудев</h4>
-                              <p className="text-sm text-gray-600 mb-4">Кмет на община Борово</p>
-                              <div className="text-xs text-gray-600 space-y-1">
-                                <p>Приемни дни:</p>
-                                <p>за записване за приемен ден, позвънете на:</p>
-                                <div className="space-y-1 mt-2">
-                                  <p>📞 (0331) 6-20-50</p>
-                                  <p>📞 (0331) 20-245</p>
-                                  <p>✉️ obshtina@asenovgrad.bg</p>
+                            <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg p-6 h-full flex flex-col">
+                              <div className="flex items-center gap-3 mb-4">
+                                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                                  <Users className="w-6 h-6 text-primary" />
+                                </div>
+                                <div>
+                                  <h4 className="text-primary font-semibold text-lg">Д-р Христо Грудев</h4>
+                                  <p className="text-sm text-gray-600">Кмет на община Борово</p>
                                 </div>
                               </div>
-                              <button className="mt-3 bg-primary text-white px-3 py-1 rounded text-xs">Повече информация</button>
+                              
+                              <div className="flex-1 space-y-4">
+                                <div className="flex items-start gap-3">
+                                  <Clock className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                                  <div className="text-sm text-gray-600">
+                                    <p className="font-medium">Приемни дни</p>
+                                    <p className="text-xs">За записване за приемен ден, позвънете на:</p>
+                                  </div>
+                                </div>
+                                
+                                <div className="space-y-2 ml-7">
+                                  <div className="flex items-center gap-2">
+                                    <Phone className="w-4 h-4 text-primary" />
+                                    <span className="text-sm text-gray-700 font-medium">(0331) 6-20-50</span>
+                                  </div>
+                                  <div className="flex items-center gap-2">
+                                    <Phone className="w-4 h-4 text-primary" />
+                                    <span className="text-sm text-gray-700 font-medium">(0331) 20-245</span>
+                                  </div>
+                                  <div className="flex items-center gap-2">
+                                    <Mail className="w-4 h-4 text-primary" />
+                                    <span className="text-sm text-gray-700 font-medium">obshtina@asenovgrad.bg</span>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <button className="mt-4 bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors w-full">
+                                Повече информация
+                              </button>
                             </div>
                           </div>
                           
