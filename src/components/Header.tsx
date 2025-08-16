@@ -686,67 +686,117 @@ const Header = () => {
                   <NavigationMenuContent>
                     <div className="fixed bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-700 shadow-2xl z-50" style={{left: 0, right: 0, top: `${navPosition}px`}}>
                       <div className="container mx-auto px-8 py-8">
-                        <div className="grid grid-cols-12 gap-8">
-                           {/* News cards with professional icons */}
-                           <div className="col-span-4 space-y-4">
-                             <a href="/news" className="block bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors">
-                               <div className="flex items-center space-x-3">
-                                 <FileText className="w-6 h-6" />
-                                 <div className="font-semibold text-sm">НОВИНИ</div>
+                        <div className="grid grid-cols-12 gap-10">
+                           {/* News cards with professional styling */}
+                           <div className="col-span-5 space-y-3">
+                              <a href="/news" className="block bg-gradient-to-r from-primary to-primary/90 rounded-xl p-5 text-white hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <div className="flex items-center justify-between">
+                                  <div className="flex items-center space-x-4">
+                                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                      <FileText className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                      <div className="font-bold text-lg">НОВИНИ</div>
+                                      <div className="text-white/80 text-sm">Актуални съобщения</div>
+                                    </div>
+                                  </div>
+                                  <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">
+                                    <span className="text-white/60">→</span>
+                                  </div>
+                                </div>
+                              </a>
+                              <a href="/events" className="block bg-gradient-to-r from-primary to-primary/90 rounded-xl p-5 text-white hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <div className="flex items-center justify-between">
+                                  <div className="flex items-center space-x-4">
+                                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                      <Calendar className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                      <div className="font-bold text-lg">СЪБИТИЯ</div>
+                                      <div className="text-white/80 text-sm">Предстоящи мероприятия</div>
+                                    </div>
+                                  </div>
+                                  <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">
+                                    <span className="text-white/60">→</span>
+                                  </div>
+                                </div>
+                              </a>
+                              <a href="/announcements" className="block bg-gradient-to-r from-primary to-primary/90 rounded-xl p-5 text-white hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <div className="flex items-center justify-between">
+                                  <div className="flex items-center space-x-4">
+                                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                      <Megaphone className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                      <div className="font-bold text-lg">СЪОБЩЕНИЯ</div>
+                                      <div className="text-white/80 text-sm">Важни уведомления</div>
+                                    </div>
+                                  </div>
+                                  <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">
+                                    <span className="text-white/60">→</span>
+                                  </div>
+                                </div>
+                              </a>
+                              <a href="/tenders" className="block bg-gradient-to-r from-primary to-primary/90 rounded-xl p-5 text-white hover:from-primary/90 hover:to-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <div className="flex items-center justify-between">
+                                  <div className="flex items-center space-x-4">
+                                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                                      <FolderOpen className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                      <div className="font-bold text-lg">ОБЯВИ, ТЪРГОВЕ</div>
+                                      <div className="text-white/80 text-sm">Търгове и конкурси</div>
+                                    </div>
+                                  </div>
+                                  <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">
+                                    <span className="text-white/60">→</span>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                           
+                           {/* Calendar and useful links with improved styling */}
+                           <div className="col-span-7 grid grid-cols-2 gap-10">
+                             <div>
+                               <h4 className="text-primary font-bold text-xl mb-6 uppercase tracking-wide">Календар</h4>
+                               <div className="space-y-4">
+                                 <div className="bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/20 rounded-xl p-6 hover:from-primary/10 hover:to-primary/15 transition-all duration-300 cursor-pointer group">
+                                   <div className="flex items-center space-x-4">
+                                     <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                                       <Theater className="w-5 h-5 text-primary" />
+                                     </div>
+                                     <div>
+                                       <div className="text-primary font-bold text-base">КУЛТУРЕН КАЛЕНДАР</div>
+                                       <div className="text-primary/70 text-sm">Събития и празници</div>
+                                     </div>
+                                   </div>
+                                 </div>
+                                 <div className="bg-gradient-to-r from-primary/5 to-primary/10 border border-primary/20 rounded-xl p-6 hover:from-primary/10 hover:to-primary/15 transition-all duration-300 cursor-pointer group">
+                                   <div className="flex items-center space-x-4">
+                                     <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                                       <Activity className="w-5 h-5 text-primary" />
+                                     </div>
+                                     <div>
+                                       <div className="text-primary font-bold text-base">СПОРТЕН КАЛЕНДАР</div>
+                                       <div className="text-primary/70 text-sm">Спортни мероприятия</div>
+                                     </div>
+                                   </div>
+                                 </div>
                                </div>
-                             </a>
-                             <a href="/events" className="block bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors">
-                               <div className="flex items-center space-x-3">
-                                 <Bell className="w-6 h-6" />
-                                 <div className="font-semibold text-sm">СЪБИТИЯ</div>
-                               </div>
-                             </a>
-                             <a href="/announcements" className="block bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors">
-                               <div className="flex items-center space-x-3">
-                                 <Megaphone className="w-6 h-6" />
-                                 <div className="font-semibold text-sm">СЪОБЩЕНИЯ</div>
-                               </div>
-                             </a>
-                             <a href="/tenders" className="block bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors">
-                               <div className="flex items-center space-x-3">
-                                 <FolderOpen className="w-6 h-6" />
-                                 <div className="font-semibold text-sm">ОБЯВИ, ТЪРГОВЕ И КОНКУРСИ</div>
-                               </div>
-                             </a>
-                             <a href="/elections" className="block bg-primary rounded-lg p-4 text-white hover:bg-primary/90 transition-colors">
-                               <div className="flex items-center space-x-3">
-                                 <Receipt className="w-6 h-6" />
-                                 <div className="font-semibold text-sm">ИЗБОРИ</div>
-                               </div>
-                             </a>
+                             </div>
+                             <div>
+                               <h4 className="text-primary font-bold text-xl mb-6 uppercase tracking-wide">Полезни връзки</h4>
+                               <ul className="space-y-3">
+                                 <li><a href="/links/corruption" className="text-sm text-gray-600 hover:text-primary transition-colors block py-2 px-4 rounded-lg hover:bg-primary/5 border-l-3 border-transparent hover:border-primary">› Сигнали за корупция</a></li>
+                                 <li><a href="/links/ministry-economy" className="text-sm text-gray-600 hover:text-primary transition-colors block py-2 px-4 rounded-lg hover:bg-primary/5 border-l-3 border-transparent hover:border-primary">› Министерство на икономиката</a></li>
+                                 <li><a href="/links/ministry-labor" className="text-sm text-gray-600 hover:text-primary transition-colors block py-2 px-4 rounded-lg hover:bg-primary/5 border-l-3 border-transparent hover:border-primary">› Министерство на труда и социалната политика</a></li>
+                                 <li><a href="/links/eu-funds" className="text-sm text-gray-600 hover:text-primary transition-colors block py-2 px-4 rounded-lg hover:bg-primary/5 border-l-3 border-transparent hover:border-primary">› Структурни фондове на ЕС</a></li>
+                                 <li><a href="/links/association" className="text-sm text-gray-600 hover:text-primary transition-colors block py-2 px-4 rounded-lg hover:bg-primary/5 border-l-3 border-transparent hover:border-primary">› Сдружение "МИГ-Кърлен-Асеновград"</a></li>
+                                 <li><a href="/links/questions" className="text-sm text-gray-600 hover:text-primary transition-colors block py-2 px-4 rounded-lg hover:bg-primary/5 border-l-3 border-transparent hover:border-primary">› Вашите въпроси</a></li>
+                               </ul>
+                             </div>
                            </div>
-                          
-                          {/* Calendar and useful links */}
-                          <div className="col-span-8 grid grid-cols-2 gap-8">
-                            <div>
-                              <h4 className="text-primary font-semibold text-base mb-4 uppercase">Календар</h4>
-                              <div className="space-y-4">
-                                <div className="bg-primary/10 rounded-lg p-4 hover:bg-primary/20 transition-colors cursor-pointer">
-                                  <div className="text-primary font-semibold text-sm">КУЛТУРЕН КАЛЕНДАР</div>
-                                </div>
-                                <div className="bg-primary/10 rounded-lg p-4 hover:bg-primary/20 transition-colors cursor-pointer">
-                                  <div className="text-primary font-semibold text-sm">СПОРТЕН КАЛЕНДАР</div>
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <h4 className="text-primary font-semibold text-base mb-4 uppercase">Полезни връзки</h4>
-                              <ul className="space-y-3">
-                                <li><a href="/links/corruption" className="text-sm text-gray-600 hover:text-primary transition-colors block py-1">› Сигнали за корупция</a></li>
-                                <li><a href="/links/ministry-economy" className="text-sm text-gray-600 hover:text-primary transition-colors block py-1">› Министерство на икономиката</a></li>
-                                <li><a href="/links/ministry-labor" className="text-sm text-gray-600 hover:text-primary transition-colors block py-1">› Министерство на труда и социалната политика</a></li>
-                                <li><a href="/links/eu-funds" className="text-sm text-gray-600 hover:text-primary transition-colors block py-1">› Структурни фондове на ЕС</a></li>
-                                <li><a href="/links/association" className="text-sm text-gray-600 hover:text-primary transition-colors block py-1">› Сдружение "МИГ-Кърлен-Асеновград"</a></li>
-                                <li><a href="/links/questions" className="text-sm text-gray-600 hover:text-primary transition-colors block py-1">› Вашите въпроси</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
+                         </div>
                       </div>
                     </div>
                   </NavigationMenuContent>
