@@ -1,4 +1,4 @@
-import { Search, Phone, Bell, Menu, X, ShoppingCart, Megaphone, FolderOpen, Smartphone, Receipt, FileText } from "lucide-react";
+import { Search, Phone, Bell, Menu, X, ShoppingCart, Megaphone, FolderOpen, Smartphone, Receipt, FileText, Theater, GraduationCap, Heart, Users, Activity, Leaf, Building, Car, Calendar } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -584,39 +584,39 @@ const Header = () => {
                           {/* Service category cards */}
                           <div className="col-span-5 grid grid-cols-3 gap-3">
                             <div className="bg-primary/10 rounded-lg p-4 text-center hover:bg-primary/20 transition-colors cursor-pointer">
-                              <div className="text-3xl mb-2">🎭</div>
+                              <Theater className="w-8 h-8 mx-auto mb-2 text-primary" />
                               <div className="text-primary font-semibold text-xs">КУЛТУРА</div>
                             </div>
                             <div className="bg-primary/10 rounded-lg p-4 text-center hover:bg-primary/20 transition-colors cursor-pointer">
-                              <div className="text-3xl mb-2">🏫</div>
+                              <GraduationCap className="w-8 h-8 mx-auto mb-2 text-primary" />
                               <div className="text-primary font-semibold text-xs">ОБРАЗОВАНИЕ</div>
                             </div>
                             <div className="bg-primary/10 rounded-lg p-4 text-center hover:bg-primary/20 transition-colors cursor-pointer">
-                              <div className="text-3xl mb-2">⚕️</div>
+                              <Heart className="w-8 h-8 mx-auto mb-2 text-primary" />
                               <div className="text-primary font-semibold text-xs">ЗДРАВЕОПАЗВАНЕ</div>
                             </div>
                             <div className="bg-primary/10 rounded-lg p-4 text-center hover:bg-primary/20 transition-colors cursor-pointer">
-                              <div className="text-3xl mb-2">👥</div>
+                              <Users className="w-8 h-8 mx-auto mb-2 text-primary" />
                               <div className="text-primary font-semibold text-xs">СОЦИАЛНИ ДЕЙНОСТИ</div>
                             </div>
                             <div className="bg-primary/10 rounded-lg p-4 text-center hover:bg-primary/20 transition-colors cursor-pointer">
-                              <div className="text-3xl mb-2">🏃</div>
+                              <Activity className="w-8 h-8 mx-auto mb-2 text-primary" />
                               <div className="text-primary font-semibold text-xs">СПОРТНИ ДЕЙНОСТИ</div>
                             </div>
                             <div className="bg-primary/10 rounded-lg p-4 text-center hover:bg-primary/20 transition-colors cursor-pointer">
-                              <div className="text-3xl mb-2">🌿</div>
+                              <Leaf className="w-8 h-8 mx-auto mb-2 text-primary" />
                               <div className="text-primary font-semibold text-xs">ЕКОЛОГИЯ</div>
                             </div>
                             <div className="bg-primary/10 rounded-lg p-4 text-center hover:bg-primary/20 transition-colors cursor-pointer">
-                              <div className="text-3xl mb-2">🏗️</div>
+                              <Building className="w-8 h-8 mx-auto mb-2 text-primary" />
                               <div className="text-primary font-semibold text-xs">ИНФРАСТРУКТУРА</div>
                             </div>
                             <div className="bg-primary/10 rounded-lg p-4 text-center hover:bg-primary/20 transition-colors cursor-pointer">
-                              <div className="text-3xl mb-2">🚗</div>
+                              <Car className="w-8 h-8 mx-auto mb-2 text-primary" />
                               <div className="text-primary font-semibold text-xs">ТРАНСПОРТ</div>
                             </div>
                             <div className="bg-primary/10 rounded-lg p-4 text-center hover:bg-primary/20 transition-colors cursor-pointer">
-                              <div className="text-3xl mb-2">🎉</div>
+                              <Calendar className="w-8 h-8 mx-auto mb-2 text-primary" />
                               <div className="text-primary font-semibold text-xs">ПРАЗНИЦИ</div>
                             </div>
                           </div>
